@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CustomButton from "../CustomButton.vue";
+import CustomButton from "../UI/CustomButton.vue";
 </script>
 
 <template>
