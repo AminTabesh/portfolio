@@ -1,71 +1,73 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import CustomButton from "../UI/CustomButton.vue";
-import { useMotion } from '@vueuse/motion'
+import { useMotion } from "@vueuse/motion";
 
 // Image animation
-const imageRef = ref<HTMLElement>()
+const imageRef = ref<HTMLElement>();
 useMotion(imageRef, {
   initial: {
     opacity: 0,
-    x: -100
+    x: -100,
   },
   enter: {
     opacity: 1,
     x: 0,
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 50,
-      damping: 15
-    }
-  }
-})
+      damping: 15,
+    },
+  },
+});
 
 // Content animation
-const contentRef = ref<HTMLElement>()
+const contentRef = ref<HTMLElement>();
 useMotion(contentRef, {
   initial: {
     opacity: 0,
-    x: 100
+    x: 100,
   },
   enter: {
     opacity: 1,
     x: 0,
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 50,
       damping: 15,
-      delay: 200
-    }
-  }
-})
+      delay: 200,
+    },
+  },
+});
 
 // Buttons animation
-const buttonsRef = ref<HTMLElement>()
+const buttonsRef = ref<HTMLElement>();
 useMotion(buttonsRef, {
   initial: {
     opacity: 0,
-    y: 20
+    y: 20,
   },
   enter: {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 50,
       damping: 15,
-      delay: 400
-    }
-  }
-})
+      delay: 400,
+    },
+  },
+});
 </script>
 
 <template>
-  <div class="tw-flex tw-flex-col tw-justify-between tw-items-center md:tw-flex-row">
-    <img 
+  <div
+    class="tw-flex tw-flex-col tw-justify-between tw-items-center md:tw-flex-row"
+  >
+    <img
       ref="imageRef"
-      src="../../assets/Image2.png" 
-      class="tw-max-w-[200px] md:tw-max-w-[390px] tw-flex-1" 
+      src="../../assets/Image2.png"
+      class="tw-max-w-[200px] md:tw-max-w-[390px] tw-flex-1"
     />
     <div
       ref="contentRef"
@@ -83,10 +85,7 @@ useMotion(buttonsRef, {
         مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
         کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
       </p>
-      <div 
-        ref="buttonsRef"
-        class="tw-flex tw-gap-4 tw-justify-center"
-      >
+      <div ref="buttonsRef" class="tw-flex tw-gap-4 tw-justify-center">
         <CustomButton>دانلودِ رزومه</CustomButton>
         <CustomButton :is-transparent="true">مشاهده تجربه ها</CustomButton>
       </div>
