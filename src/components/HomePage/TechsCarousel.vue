@@ -15,21 +15,21 @@ const props = defineProps({
 const carousel = ref(null);
 
 const carouselConfig = {
-  itemsToShow: 1.35,
+  itemsToShow: 1.2,
   wrapAround: true,
   gap: 20,
   snapAlign: "start",
-  autoplay: 5000,
+  autoplay: false,
   breakpoints: {
-    640: {
+    550: {
       itemsToShow: 2.35,
     },
     768: {
-      itemsToShow: 3.35,
+      itemsToShow: 2.35,
     },
     1024: {
-      itemsToShow: 4.35,
-      gap: 40,
+      itemsToShow: 4.35 ,
+      gap: 45,
     },
   },
 };
@@ -65,7 +65,7 @@ const carouselConfig = {
 }
 
 .carousel__item {
-  min-height: 190px;
+  min-height: 200px;
   width: 100%;
   display: flex;
   justify-content: flex-start;

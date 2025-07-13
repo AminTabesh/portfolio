@@ -5,7 +5,7 @@ import Home from "./pages/Home.vue";
 
 <template>
   <div
-    class="tw-py-16 tw-px-8 tw-pb-[60px] tw-max-w-[100vw] tw-overflow-x-hidden"
+    class="tw-py-16 tw-px-8 md:tw-px-28 tw-pb-[60px] tw-max-w-[100vw] tw-overflow-x-hidden"
   >
     <Home />
     <Footer class="tw-mt-32" />

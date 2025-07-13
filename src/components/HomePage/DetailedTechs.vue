@@ -2,6 +2,9 @@
 import DetailedTechCard from "./DetailedTechCard.vue";
 import TechIcons from "../../constants/TechIcons";
 import DetailedTechCarousel from "./DetailedTechCarousel.vue";
+import { ref, onMounted } from "vue";
+import { useMotion } from "@vueuse/motion";
+
 const techGroups = [
   {
     title: "Front-end Frameworks",
@@ -44,25 +47,85 @@ const techGroups = [
     ],
   },
 ];
+
+// Animation refs
+const line1 = ref(null);
+const line2 = ref(null);
+const line3 = ref(null);
+const carousel = ref(null);
+
+// Animate when mounted
+onMounted(() => {
+  // Header text animations (sequential)
+  useMotion(line1, {
+    initial: { opacity: 0, y: 20 },
+    visibleOnce: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        delay: 200,
+      },
+    },
+  });
+
+  useMotion(line2, {
+    initial: { opacity: 0, y: 20 },
+    visibleOnce: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        delay: 400,
+      },
+    },
+  });
+
+  useMotion(line3, {
+    initial: { opacity: 0, y: 20 },
+    visibleOnce: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        delay: 600,
+      },
+    },
+  });
+
+  // Carousel animation
+  useMotion(carousel, {
+    initial: { opacity: 0, y: 50 },
+    visibleOnce: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 15,
+        delay: 800,
+      },
+    },
+  });
+});
 </script>
 
 <template>
   <div>
     <div class="tw-text-center tw-font-thin tw-text-2xl" dir="rtl">
-      <p>تا حالا</p>
-      <p>تجربه کار با این تکنولوژی ها</p>
-      <p>رو بدست آوردم:</p>
+      <p ref="line1">تا حالا</p>
+      <p ref="line2">تجربه کار با این تکنولوژی ها</p>
+      <p ref="line3">رو بدست آوردم:</p>
     </div>
-
-    <!-- <div class="tw-flex tw-justify-center tw-items-center tw-mt-24">
-      <DetailedTechCard
-        v-for="grp in techGroups"
-        :key="grp.title"
-        v-bind="grp"
-      />
-    </div> -->
-
-    <DetailedTechCarousel :techs="techGroups" />
+    <div ref="carousel">
+      <DetailedTechCarousel :techs="techGroups" />
+    </div>
   </div>
 </template>
 
