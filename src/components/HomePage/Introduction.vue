@@ -3,7 +3,6 @@ import { ref } from "vue";
 import CustomButton from "../UI/CustomButton.vue";
 import { useMotion } from "@vueuse/motion";
 
-// Image animation
 const imageRef = ref<HTMLElement>();
 useMotion(imageRef, {
   initial: {
@@ -21,7 +20,6 @@ useMotion(imageRef, {
   },
 });
 
-// Content animation
 const contentRef = ref<HTMLElement>();
 useMotion(contentRef, {
   initial: {
@@ -40,7 +38,6 @@ useMotion(contentRef, {
   },
 });
 
-// Buttons animation
 const buttonsRef = ref<HTMLElement>();
 useMotion(buttonsRef, {
   initial: {
@@ -58,6 +55,14 @@ useMotion(buttonsRef, {
     },
   },
 });
+
+const openNewTab = (url) => {
+  if (typeof url === "string" && url.trim() !== "") {
+    window.open(url, "_blank");
+  } else {
+    console.error("Invalid URL provided");
+  }
+};
 </script>
 
 <template>
@@ -67,7 +72,8 @@ useMotion(buttonsRef, {
     <img
       ref="imageRef"
       src="../../assets/Image2.png"
-      class="tw-max-w-[200px] md:tw-max-w-[390px] tw-flex-1"
+      alt="Amin Tabesh"
+      class="tw-w-full tw-max-w-[200px] md:tw-max-w-[390px] tw-h-auto tw-flex-1"
     />
     <div
       ref="contentRef"
@@ -76,18 +82,43 @@ useMotion(buttonsRef, {
       <h1 class="tw-font-semibold tw-text-2xl tw-text-center">
         سلام، من امینَم
       </h1>
-      <p class="tw-text-theme-gray-400 tw-font-extralight tw-text-center">
-        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
-        از طراحان گرافیک است،
-        <span class="tw-text-white tw-font-normal">متن 1</span> و متون بلکه
-        روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
-        <span class="tw-text-white tw-font-normal">متن 2</span> فعلی تکنولوژی
-        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
-        کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
+      <p
+        class="tw-text-theme-gray-400 tw-font-extralight tw-text-center"
+        dir="rtl"
+      >
+        از سال 1402 یادگیری برنامه نویسی
+        <span class="tw-text-white tw-font-normal">فرانت اند</span> رو به صورت
+        خودآموز و به خاطر علاقه خودم شروع کردم. مباحث پایه رو با دقت یاد گرفتم و
+        آروم آروم به سمت مباحث پیشرفته تر رفتم. اول به توصیه دوستام
+        <span class="tw-text-white tw-font-normal">ری اکت</span> رو انتخاب کردم،
+        ولی بعد با توجه به نیاز محل کارم
+        <span class="tw-text-white tw-font-normal">ویو و ری اکت نیتیو</span> رو
+        هم یاد گرفتم و با هر سه تاشون پروژه های تمرینی و واقعی زیادی نوشتم که
+        یکسری هشون رو از قسمت
+        <router-link to="/projects" class="tw-text-white tw-font-normal"
+          >"پروژه ها"</router-link
+        >
+        و کاملترشون رو از صفحه
+        <a
+          class="tw-text-white tw-font-normal"
+          href="https://github.com/AminTabesh"
+          target="_blank"
+          >گیتهابم</a
+        >
+        میتونی ببینی :)
       </p>
       <div ref="buttonsRef" class="tw-flex tw-gap-4 tw-justify-center">
-        <CustomButton>دانلودِ رزومه</CustomButton>
-        <CustomButton :is-transparent="true">مشاهده تجربه ها</CustomButton>
+        <CustomButton
+          @click="
+            openNewTab(
+              'https://drive.google.com/file/d/1mrI4YPL7cHizI6rcc3ElgUo1bW1mKkVl/view?usp=drive_link'
+            )
+          "
+          >دانلودِ رزومه</CustomButton
+        >
+        <CustomButton :is-transparent="true">
+          <router-link to="/experiences">مشاهده تجربه ها</router-link>
+        </CustomButton>
       </div>
     </div>
   </div>

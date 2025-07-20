@@ -63,7 +63,7 @@ onMounted(() => {
       ></div>
       <div
         class="tw-absolute tw-top-2/3 tw-left-1/3 tw-w-[150%] tw-h-[150%] tw-bg-[radial-gradient(ellipse_at_center,_rgba(97,4,214,0.5)_0%,_transparent_70%)] tw-filter tw-blur-[60px] tw-transform tw--translate-x-1/2 tw--translate-y-1/3 tw-animate-pulse"
-        style="animation-duration: 82s !important;"
+        style="animation-duration: 8s !important;"
       ></div>
     </div>
 

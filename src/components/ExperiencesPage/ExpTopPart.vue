@@ -73,6 +73,14 @@ useMotion(buttonRef, {
     },
   },
 });
+
+const openNewTab = (url) => {
+  if (typeof url === "string" && url.trim() !== "") {
+    window.open(url, "_blank");
+  } else {
+    console.error("Invalid URL provided");
+  }
+};
 </script>
 
 <template>
@@ -94,7 +102,14 @@ useMotion(buttonRef, {
         به عنوان یک <span class="tw-font-light">برنامه نویس فرانت اند</span>
       </p>
       <p ref="text3">بیشتر آشنا شی :)</p>
-      <CustomButton ref="buttonRef" class="tw-mt-5 tw-font-light tw-text-base"
+      <CustomButton
+        ref="buttonRef"
+        class="tw-mt-5 tw-font-light tw-text-base"
+        @click="
+          openNewTab(
+            'https://drive.google.com/file/d/1mrI4YPL7cHizI6rcc3ElgUo1bW1mKkVl/view?usp=drive_link'
+          )
+        "
         >دانلودِ رزومه</CustomButton
       >
     </div>

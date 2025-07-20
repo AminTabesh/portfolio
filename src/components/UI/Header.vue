@@ -7,6 +7,22 @@ const route = useRoute();
 const isHome = computed(() => route.path === "/");
 
 const isDesktop = computed(() => window.innerWidth >= 1024);
+
+const openNewTab = (urlOrEmail: string) => {
+  if (!urlOrEmail || typeof urlOrEmail !== "string") {
+    console.error("Invalid URL/Email provided");
+    return;
+  }
+
+  // If it's an email (contains '@' but not 'http')
+  if (urlOrEmail.includes("@") && !urlOrEmail.startsWith("http")) {
+    window.location.href = `mailto:${urlOrEmail}`;
+  }
+  // If it's a regular URL
+  else {
+    window.open(urlOrEmail, "_blank", "noopener,noreferrer");
+  }
+};
 </script>
 
 <template>
@@ -35,12 +51,20 @@ const isDesktop = computed(() => window.innerWidth >= 1024);
           class="tw-flex tw-flexro tw-items-center tw-justify-center tw-gap-4"
         >
           <router-link
+            to="/projects"
+            active-class="!tw-text-theme-white"
+            class="hover:tw-text-theme-white tw-transition-colors"
+          >
+            پروژه ها
+          </router-link>
+          <router-link
             to="/experiences"
             active-class="!tw-text-theme-white"
             class="hover:tw-text-theme-white tw-transition-colors"
           >
             تجربه ها
           </router-link>
+
           <router-link
             to="/"
             active-class="!tw-text-theme-white"
@@ -55,19 +79,19 @@ const isDesktop = computed(() => window.innerWidth >= 1024);
             icon="ic:baseline-telegram"
             class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
-            
+            @click="openNewTab('https://t.me/AminTabesham')"
           />
           <Icon
             icon="mdi:github"
             class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
-            
-          />
-          <Icon
+            @click="openNewTab('https://github.com/AminTabesh')"
+            />
+            <Icon
             icon="ic:baseline-email"
             class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
-            
+            @click="openNewTab('amintabeshyt@gmail.com')"
           />
         </div>
       </div>
