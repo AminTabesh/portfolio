@@ -15,6 +15,13 @@ const techGroups = [
     ],
   },
   {
+    title: "Languages",
+    techs: [
+      { title: "JavaScript", icon: TechIcons.JavaScript },
+      { title: "TypeScript", icon: TechIcons.react },
+    ],
+  },
+  {
     title: "Styling",
     techs: [
       { title: "Tailwind", icon: TechIcons.tailwind },

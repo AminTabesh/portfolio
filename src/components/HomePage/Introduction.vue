@@ -92,15 +92,15 @@ const openNewTab = (url) => {
         آروم آروم به سمت مباحث پیشرفته تر رفتم. اول به توصیه دوستام
         <span class="tw-text-white tw-font-normal">ری اکت</span> رو انتخاب کردم،
         ولی بعد با توجه به نیاز محل کارم
-        <span class="tw-text-white tw-font-normal">ویو و ری اکت نیتیو</span> رو
+        <span class="tw-text-white tw-font-normal ">ویو و ری اکت نیتیو</span> رو
         هم یاد گرفتم و با هر سه تاشون پروژه های تمرینی و واقعی زیادی نوشتم که
         یکسری هاشون رو از قسمت
-        <router-link to="/projects" class="tw-text-white tw-font-normal"
+        <router-link to="/projects" class="tw-text-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
           >"پروژه ها"</router-link
         >
         و کاملترشون رو از صفحه
         <a
-          class="tw-text-white tw-font-normal"
+          class="tw-text-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
           href="https://github.com/AminTabesh"
           target="_blank"
           >گیتهابم</a
