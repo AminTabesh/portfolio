@@ -3,6 +3,8 @@ import { ref } from "vue";
 import CustomButton from "../UI/CustomButton.vue";
 import { useMotion } from "@vueuse/motion";
 
+const cvUrl = import.meta.env.VITE_CV_URL;
+
 const buttonRef = ref(null);
 const text1 = ref(null);
 const text2 = ref(null);
@@ -105,11 +107,7 @@ const openNewTab = (url) => {
       <CustomButton
         ref="buttonRef"
         class="tw-mt-5 tw-font-light tw-text-base"
-        @click="
-          openNewTab(
-            'https://drive.google.com/file/d/1mrI4YPL7cHizI6rcc3ElgUo1bW1mKkVl/view?usp=drive_link'
-          )
-        "
+        @click="openNewTab(cvUrl)"
         >دانلودِ رزومه</CustomButton
       >
     </div>

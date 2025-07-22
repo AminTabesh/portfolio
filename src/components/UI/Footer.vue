@@ -1,6 +1,10 @@
 <script setup>
 import { Icon } from "@iconify/vue";
 
+const githubLink = import.meta.env.VITE_GITHUB_URL;
+const telegramLink = import.meta.env.VITE_TELEGRAM_URL;
+const emailAddress = import.meta.env.VITE_EMAIL_ADDRESS;
+
 const openNewTab = (urlOrEmail) => {
   if (!urlOrEmail || typeof urlOrEmail !== "string") {
     console.error("Invalid URL/Email provided");
@@ -29,19 +33,19 @@ const openNewTab = (urlOrEmail) => {
           icon="ic:baseline-telegram"
           class="tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
           width="22"
-          @click="openNewTab('https://t.me/AminTabesham')"
+          @click="openNewTab(telegramLink)"
         />
         <Icon
           icon="mdi:github"
           class="tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
           width="22"
-          @click="openNewTab('https://github.com/AminTabesh')"
+          @click="openNewTab(githubLink)"
         />
         <Icon
           icon="ic:baseline-email"
           class="tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
           width="22"
-          @click="openNewTab('amintabeshyt@gmail.com')"
+          @click="openNewTab(emailAddress)"
         />
       </div>
     </div>

@@ -3,8 +3,13 @@ import { Icon } from "@iconify/vue";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
 
+const githubLink = import.meta.env.VITE_GITHUB_URL;
+const telegramLink = import.meta.env.VITE_TELEGRAM_URL;
+const emailAddress = import.meta.env.VITE_EMAIL_ADDRESS;
+
 const route = useRoute();
 const isHome = computed(() => route.path === "/");
+
 
 const isDesktop = computed(() => window.innerWidth >= 1024);
 
@@ -79,19 +84,19 @@ const openNewTab = (urlOrEmail: string) => {
             icon="ic:baseline-telegram"
             class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
-            @click="openNewTab('https://t.me/AminTabesham')"
+            @click="openNewTab(telegramLink)"
           />
           <Icon
             icon="mdi:github"
             class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
-            @click="openNewTab('https://github.com/AminTabesh')"
+            @click="openNewTab(githubLink)"
             />
             <Icon
             icon="ic:baseline-email"
             class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
-            @click="openNewTab('amintabeshyt@gmail.com')"
+            @click="openNewTab(emailAddress)"
           />
         </div>
       </div>

@@ -3,6 +3,8 @@ import { ref } from "vue";
 import CustomButton from "../UI/CustomButton.vue";
 import { useMotion } from "@vueuse/motion";
 
+const cvUrl = import.meta.env.VITE_CV_URL;
+
 const imageRef = ref<HTMLElement>();
 useMotion(imageRef, {
   initial: {
@@ -92,10 +94,12 @@ const openNewTab = (url) => {
         آروم آروم به سمت مباحث پیشرفته تر رفتم. اول به توصیه دوستام
         <span class="tw-text-white tw-font-normal">ری اکت</span> رو انتخاب کردم،
         ولی بعد با توجه به نیاز محل کارم
-        <span class="tw-text-white tw-font-normal ">ویو و ری اکت نیتیو</span> رو
+        <span class="tw-text-white tw-font-normal">ویو و ری اکت نیتیو</span> رو
         هم یاد گرفتم و با هر سه تاشون پروژه های تمرینی و واقعی زیادی نوشتم که
         یکسری هاشون رو از قسمت
-        <router-link to="/projects" class="tw-text-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
+        <router-link
+          to="/projects"
+          class="tw-text-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
           >"پروژه ها"</router-link
         >
         و کاملترشون رو از صفحه
@@ -108,14 +112,7 @@ const openNewTab = (url) => {
         میتونی ببینی :)
       </p>
       <div ref="buttonsRef" class="tw-flex tw-gap-4 tw-justify-center">
-        <CustomButton
-          @click="
-            openNewTab(
-              'https://drive.google.com/file/d/1mrI4YPL7cHizI6rcc3ElgUo1bW1mKkVl/view?usp=drive_link'
-            )
-          "
-          >دانلودِ رزومه</CustomButton
-        >
+        <CustomButton @click="openNewTab(cvUrl)">دانلودِ رزومه</CustomButton>
         <CustomButton :is-transparent="true">
           <router-link to="/experiences">مشاهده تجربه ها</router-link>
         </CustomButton>
