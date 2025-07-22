@@ -94,7 +94,7 @@ const openNewTab = (url) => {
         ولی بعد با توجه به نیاز محل کارم
         <span class="tw-text-white tw-font-normal">ویو و ری اکت نیتیو</span> رو
         هم یاد گرفتم و با هر سه تاشون پروژه های تمرینی و واقعی زیادی نوشتم که
-        یکسری هشون رو از قسمت
+        یکسری هاشون رو از قسمت
         <router-link to="/projects" class="tw-text-white tw-font-normal"
           >"پروژه ها"</router-link
         >
