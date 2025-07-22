@@ -14,6 +14,7 @@ import axiosLogo from "../assets/experience-logos/axios-logo.png";
 import vuexLogo from "../assets/experience-logos/vuex-1.svg";
 import reduxLogo from "../assets/experience-logos/redux-logosvg.svg";
 import expoLogo from "../assets/experience-logos/expo-go-app-logo.svg";
+import tsLogo from "../assets/experience-logos/typescript.svg";
 
 export default {
   JavaScript: jsLogo,
@@ -32,4 +33,5 @@ export default {
   vuex: vuexLogo,
   redux: reduxLogo,
   expo: expoLogo,
+  typeScript: tsLogo
 };

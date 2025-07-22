@@ -28,7 +28,7 @@ const carouselConfig = {
       itemsToShow: 2.35,
     },
     1024: {
-      itemsToShow: 4.35 ,
+      itemsToShow: 4.5,
       gap: 45,
     },
   },
@@ -62,6 +62,7 @@ const carouselConfig = {
 
 .carousel-container {
   width: 100%;
+  @apply tw-select-none;
 }
 
 .carousel__item {

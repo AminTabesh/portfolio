@@ -41,7 +41,7 @@ const carouselConfig = {
 </script>
 
 <template>
-  <div class="tw-mt-10 tw-px-4">
+  <div class="tw-mt-10 tw-px-4 tw-select-none tw-cursor-grab active:tw-cursor-grabbing">
     <Carousel ref="carousel" v-bind="carouselConfig">
       <Slide v-for="(tech, index) in techs" :key="index">
         <div class="carousel__item tw-flex tw-justify-center">

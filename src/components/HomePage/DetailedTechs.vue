@@ -18,7 +18,7 @@ const techGroups = [
     title: "Languages",
     techs: [
       { title: "JavaScript", icon: TechIcons.JavaScript },
-      { title: "TypeScript", icon: TechIcons.react },
+      { title: "TypeScript", icon: TechIcons.typeScript },
     ],
   },
   {
