@@ -8,6 +8,6 @@ import Introduction from "../components/HomePage/Introduction.vue";
 <template>
   <Introduction />
   <Experiences />
-  <CentralPart class="tw-mt-28"/>
-  <DetailedTechs class="tw-mt-44"/>
+  <CentralPart class="tw-mt-28" />
+  <DetailedTechs class="tw-mt-44" />
 </template>

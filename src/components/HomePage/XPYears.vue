@@ -6,7 +6,7 @@
       class="tw-flex tw-flex-col tw-items-center tw-absolute tw-text-center tw-gap-4"
     >
       <p class="tw-text-nowrap tw-text-gray-400 tw-font-extralight">
-        یک و نیم سال
+        دو سال
       </p>
       <p class="tw-text-nowrap tw-text-white tw-font-bold tw-text-3xl">تجربه</p>
       <p class="tw-text-gray-400 tw-font-extralight tw-w-44">

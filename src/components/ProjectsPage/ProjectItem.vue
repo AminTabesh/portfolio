@@ -3,6 +3,8 @@ import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 import { ref } from "vue";
 import { useMotion } from "@vueuse/motion";
+import ImageWithSkeleton from "./ImageWithSkeleton.vue";
+import ImageModal from "./ImageModal.vue";
 
 defineProps({
   project: {
@@ -12,6 +14,8 @@ defineProps({
 });
 
 const containerRef = ref(null);
+const modalOpen = ref(false);
+const modalIndex = ref(0);
 
 useMotion(containerRef, {
   initial: {
@@ -29,6 +33,11 @@ useMotion(containerRef, {
     },
   },
 });
+
+function openModal(index) {
+  modalIndex.value = index;
+  modalOpen.value = true;
+}
 </script>
 
 <template>
@@ -61,10 +70,10 @@ useMotion(containerRef, {
       >
         <Slide v-for="(image, index) in project.images" :key="index">
           <div class="carousel__item tw-h-[200px] md:tw-h-[280px]">
-            <img
+            <ImageWithSkeleton
               :src="image"
               :alt="`project image ${index + 1}`"
-              class="tw-w-full tw-h-full tw-object-contain"
+              @click="openModal(index)"
             />
           </div>
         </Slide>
@@ -76,6 +85,12 @@ useMotion(containerRef, {
       </Carousel>
     </div>
   </div>
+
+  <ImageModal
+    v-model="modalOpen"
+    v-model:currentIndex="modalIndex"
+    :images="project.images"
+  />
 </template>
 
 <style scoped>

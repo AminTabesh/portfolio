@@ -71,12 +71,36 @@ const openNewTab = (url) => {
   <div
     class="tw-flex tw-flex-col tw-justify-between tw-items-center md:tw-flex-row"
   >
-    <img
+    <div
       ref="imageRef"
-      src="../../assets/Image2.png"
-      alt="Amin Tabesh"
-      class="tw-w-full tw-max-w-[200px] md:tw-max-w-[390px] tw-h-auto tw-flex-1"
-    />
+      class="tw-relative tw-w-full tw-max-w-[200px] md:tw-max-w-[390px] tw-flex-1"
+    >
+      <img
+        src="../../assets/Image2.png"
+        alt="Amin Tabesh"
+        class="tw-w-full tw-h-auto"
+      />
+      <img
+        src="../../assets/experience-logos/react-logo.png"
+        alt="React"
+        class="tech-logo react-logo tw-absolute tw-w-10 tw-h-10 md:tw-w-[58px] md:tw-h-[58px] tw-object-contain tw-rounded-[14px] tw-p-2 tw-border tw-border-white/10 tw-top-1 tw-right-1 md:-tw-top-[5px] md:tw-right-[80px]"
+      />
+      <img
+        src="../../assets/experience-logos/vue-logo.png"
+        alt="Vue"
+        class="tech-logo vue-logo tw-absolute tw-w-10 tw-h-10 md:tw-w-[58px] md:tw-h-[58px] tw-object-contain tw-rounded-[14px] tw-p-2 tw-border tw-border-white/10 tw-top-1 tw-left-1 md:tw-top-[70px] md:tw-left-[50px]"
+      />
+      <img
+        src="../../assets/experience-logos/js-logo.png"
+        alt="JavaScript"
+        class="tech-logo js-logo tw-absolute tw-w-10 tw-h-10 md:tw-w-[58px] md:tw-h-[58px] tw-object-contain tw-rounded-[14px] tw-p-2 tw-border tw-border-white/10 tw-bottom-1 tw-left-1 md:tw-bottom-[60px] md:tw-left-[30px]"
+      />
+      <img
+        src="../../assets/experience-logos/typescript.svg"
+        alt="TypeScript"
+        class="tech-logo ts-logo tw-absolute tw-w-10 tw-h-10 md:tw-w-[58px] md:tw-h-[58px] tw-object-contain tw-rounded-[14px] tw-p-2 tw-border tw-border-white/10 tw-bottom-1 tw-right-1 md:tw-bottom-[65px] md:tw-right-[45px]"
+      />
+    </div>
     <div
       ref="contentRef"
       class="tw-flex tw-flex-col tw-justify-center tw-text-right tw-py-8 tw-gap-5 md:tw-w-[45%]"
@@ -112,7 +136,7 @@ const openNewTab = (url) => {
         میتونی ببینی :)
       </p>
       <div ref="buttonsRef" class="tw-flex tw-gap-4 tw-justify-center">
-        <CustomButton @click="openNewTab(cvUrl)">دانلودِ رزومه</CustomButton>
+        <CustomButton @click="openNewTab(cvUrl)">مشاهده‌ی رزومه</CustomButton>
         <CustomButton :is-transparent="true">
           <router-link to="/experiences">مشاهده تجربه ها</router-link>
         </CustomButton>
@@ -120,3 +144,26 @@ const openNewTab = (url) => {
     </div>
   </div>
 </template>
+
+<style scoped>
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+.tech-logo {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: float 3.5s ease-in-out infinite;
+}
+
+.react-logo { animation-delay: 0s; }
+.vue-logo   { animation-delay: 0.875s; }
+.js-logo    { animation-delay: 1.75s; }
+.ts-logo    { animation-delay: 2.625s; }
+</style>

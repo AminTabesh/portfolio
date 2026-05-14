@@ -6,6 +6,7 @@ import { computed } from "vue";
 const githubLink = import.meta.env.VITE_GITHUB_URL;
 const telegramLink = import.meta.env.VITE_TELEGRAM_URL;
 const emailAddress = import.meta.env.VITE_EMAIL_ADDRESS;
+const linkedinLink = "https://www.linkedin.com/in/amintabeshdev";
 
 const route = useRoute();
 const isHome = computed(() => route.path === "/");
@@ -97,6 +98,12 @@ const openNewTab = (urlOrEmail: string) => {
             class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
             @click="openNewTab(emailAddress)"
+          />
+          <Icon
+            icon="mdi:linkedin"
+            class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
+            width="22"
+            @click="openNewTab(linkedinLink)"
           />
         </div>
       </div>

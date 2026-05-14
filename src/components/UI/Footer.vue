@@ -4,6 +4,7 @@ import { Icon } from "@iconify/vue";
 const githubLink = import.meta.env.VITE_GITHUB_URL;
 const telegramLink = import.meta.env.VITE_TELEGRAM_URL;
 const emailAddress = import.meta.env.VITE_EMAIL_ADDRESS;
+const linkedinLink = "https://www.linkedin.com/in/amintabeshdev";
 
 const openNewTab = (urlOrEmail) => {
   if (!urlOrEmail || typeof urlOrEmail !== "string") {
@@ -46,6 +47,12 @@ const openNewTab = (urlOrEmail) => {
           class="tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
           width="22"
           @click="openNewTab(emailAddress)"
+        />
+        <Icon
+          icon="mdi:linkedin"
+          class="tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
+          width="22"
+          @click="openNewTab(linkedinLink)"
         />
       </div>
     </div>

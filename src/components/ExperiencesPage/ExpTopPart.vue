@@ -108,7 +108,7 @@ const openNewTab = (url) => {
         ref="buttonRef"
         class="tw-mt-5 tw-font-light tw-text-base"
         @click="openNewTab(cvUrl)"
-        >دانلودِ رزومه</CustomButton
+        >مشاهده‌ی رزومه</CustomButton
       >
     </div>
   </div>
