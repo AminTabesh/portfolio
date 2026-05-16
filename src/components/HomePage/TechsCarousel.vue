@@ -1,55 +1,42 @@
 <script setup>
-import { ref } from "vue";
-import { Carousel, Slide } from "vue3-carousel";
-import { Pagination as CarouselPagination } from "vue3-carousel";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Pagination } from "swiper/modules";
 import TechCard from "./TechCard.vue";
-import "vue3-carousel/dist/carousel.css";
+import "swiper/css";
+import "swiper/css/pagination";
 
-const props = defineProps({
+defineProps({
   techs: {
     type: Array,
     required: true,
   },
 });
-
-const carousel = ref(null);
-
-const carouselConfig = {
-  itemsToShow: 1.2,
-  wrapAround: false,
-  gap: 20,
-  snapAlign: "start",
-  autoplay: false,
-  breakpoints: {
-    550: {
-      itemsToShow: 2.35,
-    },
-    768: {
-      itemsToShow: 2.35,
-    },
-    1024: {
-      itemsToShow: 4.5,
-      gap: 45,
-    },
-  },
-};
 </script>
 
 <template>
   <div class="carousel-wrapper">
     <div class="carousel-container">
-      <Carousel ref="carousel" v-bind="carouselConfig">
-        <Slide v-for="(tech, index) in techs" :key="index">
+      <Swiper
+        :modules="[Pagination]"
+        :slides-per-view="1.2"
+        :loop="true"
+        :space-between="20"
+        :pagination="{ clickable: true, el: '.custom-pagination' }"
+        :breakpoints="{
+          550: { slidesPerView: 2.35 },
+          768: { slidesPerView: 2.35 },
+          1024: { slidesPerView: 3, spaceBetween: 40 },
+        }"
+      >
+        <SwiperSlide v-for="(tech, index) in techs" :key="index">
           <div class="carousel__item">
-            <TechCard v-bind="tech" class="flex-shrink-0 mr-[15px]" />
+            <TechCard v-bind="tech" />
           </div>
-        </Slide>
-      </Carousel>
+        </SwiperSlide>
+      </Swiper>
     </div>
 
-    <div class="custom-pagination">
-      <CarouselPagination v-if="carousel" :carousel="carousel" />
-    </div>
+    <div class="custom-pagination"></div>
   </div>
 </template>
 
@@ -63,6 +50,12 @@ const carouselConfig = {
 .carousel-container {
   width: 100%;
   @apply tw-select-none;
+}
+
+.swiper-wrapper {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .carousel__item {
@@ -81,17 +74,7 @@ const carouselConfig = {
   margin-top: 30px;
 }
 
-.carousel__pagination {
-  position: static !important;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto !important;
-  padding: 0 !important;
-  transform: none !important;
-  left: auto !important;
-}
-
-.carousel__pagination-button {
+.swiper-pagination-bullet {
   height: 13px;
   width: 20px !important;
   border-radius: 100px !important;
@@ -100,9 +83,10 @@ const carouselConfig = {
   padding: 0 !important;
   border: none !important;
   transition: all 0.3s ease !important;
+  opacity: 1 !important;
 }
 
-.carousel__pagination-button--active {
+.swiper-pagination-bullet-active {
   background-color: #d9d9d9 !important;
   width: 65px !important;
 }

@@ -7,6 +7,9 @@
 @tailwind utilities;
 
 @layer base {
+    html {
+        scrollbar-gutter: stable;
+    }
     body {
         @apply tw-bg-theme-gray-900 tw-text-theme-white;
     }

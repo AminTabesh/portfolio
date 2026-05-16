@@ -9,9 +9,9 @@ import { ref } from "vue";
 const techs = [
   { title: "JavaScript", icon: TechIcons.JavaScript, bgColor: "#C3C99E" },
   { title: "TypeScript", icon: TechIcons.typeScript, bgColor: "#7FB2F0" },
-  { title: "React", icon: TechIcons.react, bgColor: "#4F9EB3" },
   { title: "Vue", icon: TechIcons.vue, bgColor: "#86C8AC" },
-  { title: "ReactNative", icon: TechIcons.reactNative, bgColor: "#7E6BCC" },
+  { title: "React", icon: TechIcons.react, bgColor: "#4F9EB3" },
+  // { title: "ReactNative", icon: TechIcons.reactNative, bgColor: "#7E6BCC" },
   { title: "Tailwind", icon: TechIcons.tailwind, bgColor: "#7D9CA5" },
 ];
 
