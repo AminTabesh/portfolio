@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tsparticles/slim": "^4.0.2",
-    "@tsparticles/vue3": "^4.0.2",
+    "@tsparticles/slim": "^3.9.1",
+    "@tsparticles/vue3": "^3.0.1",
     "@vueuse/core": "^13.5.0",
     "@vueuse/motion": "^3.0.3",
     "swiper": "^12.1.4",
