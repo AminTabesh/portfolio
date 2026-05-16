@@ -2,6 +2,9 @@
 import { ref } from "vue";
 import CustomButton from "../UI/CustomButton.vue";
 import { useMotion } from "@vueuse/motion";
+import { useLanguage } from "../../composables/useLanguage.js";
+
+const { t } = useLanguage();
 
 const cvUrl = import.meta.env.VITE_CV_URL;
 
@@ -56,7 +59,6 @@ const openNewTab = (url) => {
   <div class="tw-flex tw-justify-center tw-mb-14">
     <div
       class="exp-hero tw-relative tw-w-full tw-h-[300px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-font-thin tw-text-xl"
-      dir="rtl"
     >
       <!-- Ambient glow -->
       <div class="exp-glow-1" />
@@ -65,14 +67,14 @@ const openNewTab = (url) => {
       <!-- Decorative ring -->
       <div class="exp-ring" />
 
-      <p ref="text1" class="tw-relative tw-z-10 tw-text-theme-gray-400">از اینجا میتونی با مسیر من</p>
+      <p ref="text1" class="tw-relative tw-z-10 tw-text-theme-gray-400">{{ t.expTopPart.line1 }}</p>
       <p ref="text2" class="tw-relative tw-z-10">
-        به عنوان یک <span class="exp-highlight">برنامه نویس فرانت اند</span>
+        {{ t.expTopPart.line2prefix }}<span class="exp-highlight">{{ t.expTopPart.highlight }}</span>
       </p>
-      <p ref="text3" class="tw-relative tw-z-10 tw-text-theme-gray-400">بیشتر آشنا شی :)</p>
+      <p ref="text3" class="tw-relative tw-z-10 tw-text-theme-gray-400">{{ t.expTopPart.line3 }}</p>
       <div ref="buttonRef" class="tw-mt-6 tw-relative tw-z-10">
         <CustomButton class="tw-font-light tw-text-base" @click="openNewTab(cvUrl)">
-          مشاهده‌ی رزومه
+          {{ t.expTopPart.viewResume }}
         </CustomButton>
       </div>
     </div>

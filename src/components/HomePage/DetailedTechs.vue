@@ -4,6 +4,9 @@ import TechIcons from "../../constants/TechIcons";
 import DetailedTechCarousel from "./DetailedTechCarousel.vue";
 import { ref, onMounted } from "vue";
 import { useMotion } from "@vueuse/motion";
+import { useLanguage } from "../../composables/useLanguage.js";
+
+const { t } = useLanguage();
 
 const techGroups = [
   {
@@ -125,10 +128,10 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="tw-text-center tw-font-thin tw-text-2xl" dir="rtl">
-      <p ref="line1">تا حالا</p>
-      <p ref="line2">تجربه کار با این تکنولوژی ها</p>
-      <p ref="line3">رو بدست آوردم:</p>
+    <div class="tw-text-center tw-font-thin tw-text-2xl">
+      <p ref="line1">{{ t.detailedTechs.line1 }}</p>
+      <p ref="line2">{{ t.detailedTechs.line2 }}</p>
+      <p ref="line3">{{ t.detailedTechs.line3 }}</p>
     </div>
     <div ref="carousel">
       <DetailedTechCarousel :techs="techGroups" />

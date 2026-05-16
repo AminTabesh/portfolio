@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import { useIntersectionObserver } from "@vueuse/core";
+import { useLanguage } from "../../composables/useLanguage.js";
+
+const { t } = useLanguage();
 
 const containerRef = ref(null);
 const displayValue = ref(0);
@@ -29,8 +32,8 @@ const { stop } = useIntersectionObserver(containerRef, ([{ isIntersecting }]) =>
   <div class="stat-block" ref="containerRef">
     <div class="stat-number">{{ displayValue }}+</div>
     <div class="stat-divider" />
-    <p class="stat-label">سال تجربه</p>
-    <p class="stat-desc">کار با انواع تکنولوژی‌های فرانت‌اند</p>
+    <p class="stat-label">{{ t.xpYears.label }}</p>
+    <p class="stat-desc">{{ t.xpYears.desc }}</p>
   </div>
 </template>
 

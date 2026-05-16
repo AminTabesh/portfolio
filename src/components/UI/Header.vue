@@ -2,6 +2,9 @@
 import { Icon } from "@iconify/vue";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
+import { useLanguage } from "../../composables/useLanguage.js";
+
+const { lang, t, toggleLang } = useLanguage();
 
 const githubLink = import.meta.env.VITE_GITHUB_URL;
 const telegramLink = import.meta.env.VITE_TELEGRAM_URL;
@@ -42,38 +45,52 @@ const openNewTab = (urlOrEmail: string) => {
           icon="material-symbols-light:arrow-back-ios-rounded"
           class="tw-mr-1"
         />
-        <span class="tw-text-sm">برگشتن</span>
+        <span class="tw-text-sm">{{ t.nav.back }}</span>
       </div>
 
       <!-- Main Navigation -->
-      <div class="nav-pill tw-text-[16px] tw-w-full tw-max-w-[620px] tw-h-[60px] tw-rounded-[100px] tw-flex tw-flex-row-reverse tw-items-center tw-justify-between tw-text-theme-purple-500 tw-px-6">
+      <div class="nav-pill tw-text-[16px] tw-w-full tw-max-w-[620px] tw-h-[60px] tw-rounded-[100px] tw-flex tw-items-center tw-justify-between tw-text-theme-purple-500 tw-px-6">
         <div
           class="tw-flex tw-items-center tw-justify-center tw-gap-4"
         >
+          <router-link
+              to="/"
+              active-class="!tw-text-theme-white nav-active"
+              class="nav-link hover:tw-text-theme-white tw-transition-colors"
+          >
+            {{ t.nav.home }}
+          </router-link>
+          <router-link
+              to="/experiences"
+              active-class="!tw-text-theme-white nav-active"
+              class="nav-link hover:tw-text-theme-white tw-transition-colors"
+          >
+            {{ t.nav.experiences }}
+          </router-link>
           <router-link
             to="/projects"
             active-class="!tw-text-theme-white nav-active"
             class="nav-link hover:tw-text-theme-white tw-transition-colors"
           >
-            پروژه ها
+            {{ t.nav.projects }}
           </router-link>
-          <router-link
-            to="/experiences"
-            active-class="!tw-text-theme-white nav-active"
-            class="nav-link hover:tw-text-theme-white tw-transition-colors"
-          >
-            تجربه ها
-          </router-link>
-          <router-link
-            to="/"
-            active-class="!tw-text-theme-white nav-active"
-            class="nav-link hover:tw-text-theme-white tw-transition-colors"
-          >
-            خانه
-          </router-link>
+
+
         </div>
 
         <div class="tw-flex tw-gap-3 tw-items-center">
+          <!-- Language Toggle -->
+          <button
+            @click="toggleLang"
+            class="lang-toggle tw-flex tw-items-center tw-gap-1 tw-cursor-pointer hover:tw-text-theme-white tw-transition-colors tw-select-none"
+            :title="lang === 'fa' ? 'Switch to English' : 'تغییر به فارسی'"
+          >
+            <Icon icon="material-symbols:language" width="18" />
+            <span class="tw-text-xs tw-font-semibold tw-tracking-wide">{{ lang === 'fa' ? 'EN' : 'FA' }}</span>
+          </button>
+
+          <div class="tw-w-[1px] tw-h-4 tw-bg-white/10 tw-flex-shrink-0"></div>
+
           <Icon
             icon="ic:baseline-telegram"
             class="social-icon hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
@@ -143,5 +160,17 @@ const openNewTab = (urlOrEmail: string) => {
 
 .social-icon:hover {
   transform: scale(1.25) translateY(-2px);
+}
+
+.lang-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.lang-toggle:hover {
+  transform: scale(1.1);
 }
 </style>

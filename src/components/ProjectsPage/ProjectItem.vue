@@ -43,7 +43,6 @@ function openModal(index) {
 <template>
   <div
     class="project-card tw-w-full tw-h-auto md:tw-h-[320px] tw-rounded-[40px] tw-border tw-border-[#232323] tw-flex tw-flex-col md:tw-flex-row tw-gap-5 tw-p-6 md:tw-p-8 overflow-hidden"
-    dir="rtl"
     ref="containerRef"
   >
     <div class="tw-flex tw-flex-col tw-gap-3 md:tw-w-1/2 md:tw-justify-center">

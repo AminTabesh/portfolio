@@ -5,6 +5,9 @@ import ParticleBackground from "./components/HomePage/ParticleBackground.vue";
 import CustomCursor from "./components/UI/CustomCursor.vue";
 import { Icon } from "@iconify/vue";
 import { ref, onMounted, onUnmounted } from "vue";
+import { provideLanguage } from "./composables/useLanguage.js";
+
+const { isRTL, isTransitioning } = provideLanguage();
 
 const scrollProgress = ref(0);
 const showScrollTop = ref(false);
@@ -55,7 +58,11 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
     />
   </div>
 
-  <div class="tw-relative tw-z-10">
+  <div
+    class="tw-relative tw-z-10"
+    :dir="isRTL ? 'rtl' : 'ltr'"
+    :style="{ opacity: isTransitioning ? 0 : 1, transition: 'opacity 0.22s ease' }"
+  >
     <Header />
     <div
       class="tw-py-16 tw-px-8 md:tw-px-28 tw-pb-[60px] tw-max-w-[100vw] tw-overflow-x-hidden"

@@ -1,29 +1,30 @@
 <script setup>
 import ProjectItem from "../components/ProjectsPage/ProjectItem.vue";
 import { PROJECT_IMAGES } from "../constants/projectImages";
+import { useLanguage } from "../composables/useLanguage.js";
+import { computed } from "vue";
 
-const projects = [
-  {
-    name: "پنل دایرکتم",
-    employer: "دایرکتم",
-    date: "1403-1404",
-    images: [PROJECT_IMAGES.directamPanel],
-    url: "https://directam.chatbooster.io",
-  },
-  {
-    name: "سی آر ام دایرکتم",
-    employer: "دایرکتم",
-    date: "1403-1404",
-    images: [PROJECT_IMAGES.crm1, PROJECT_IMAGES.crm2, PROJECT_IMAGES.crm3],
-  },
-  {
-    name: "دی ام پلاس",
-    employer: "دایرکتم",
-    date: "1403-1404",
-    images: [PROJECT_IMAGES.dmPlus],
-    url: "https://dmplus.manymessage.com/",
-  },
+const { t } = useLanguage();
+
+const projectImages = [
+  [PROJECT_IMAGES.directamPanel],
+  [PROJECT_IMAGES.crm1, PROJECT_IMAGES.crm2, PROJECT_IMAGES.crm3],
+  [PROJECT_IMAGES.dmPlus],
 ];
+
+const projectUrls = [
+  "https://directam.chatbooster.io",
+  undefined,
+  "https://dmplus.manymessage.com/",
+];
+
+const projects = computed(() =>
+  t.value.projects.map((p, i) => ({
+    ...p,
+    images: projectImages[i],
+    url: projectUrls[i],
+  }))
+);
 </script>
 
 <template>

@@ -32,7 +32,6 @@ useMotion(containerRef, {
 <template>
   <div
     class="job-card tw-w-full md:tw-w-[90%] tw-mx-auto tw-bg-theme-gray-800 tw-rounded-[40px] tw-py-10 md:tw-py-14 tw-px-5 md:tw-px-16 tw-flex tw-flex-col tw-gap-12 md:tw-flex-row md:tw-gap-6"
-    dir="rtl"
     ref="containerRef"
   >
     <div class="tw-flex tw-flex-col tw-gap-2 tw-text-nowrap md:tw-flex-[2.5]">

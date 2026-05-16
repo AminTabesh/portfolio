@@ -2,6 +2,9 @@
 import { ref } from "vue";
 import CustomButton from "../UI/CustomButton.vue";
 import { useMotion } from "@vueuse/motion";
+import { useLanguage } from "../../composables/useLanguage.js";
+
+const { lang, t } = useLanguage();
 
 const cvUrl = import.meta.env.VITE_CV_URL;
 
@@ -70,6 +73,7 @@ const openNewTab = (url) => {
 <template>
   <div
     class="tw-flex tw-flex-col tw-justify-between tw-items-center md:tw-flex-row"
+    dir="ltr"
   >
     <div
       ref="imageRef"
@@ -103,17 +107,20 @@ const openNewTab = (url) => {
     </div>
     <div
       ref="contentRef"
-      class="tw-flex tw-flex-col tw-justify-center tw-text-right tw-py-8 tw-gap-5 md:tw-w-[45%]"
+      class="tw-flex tw-flex-col tw-justify-center tw-py-8 tw-gap-5 md:tw-w-[45%]"
     >
       <div class="tw-text-center">
         <h1 class="tw-font-semibold tw-text-2xl">
-          سلام، من امینَم
+          {{ t.intro.greeting }}
         </h1>
         <p class="tw-text-theme-purple-500 tw-text-sm tw-mt-1 tw-font-light tw-tracking-widest role-label">
           Front-end Developer
         </p>
       </div>
+
+      <!-- Persian bio -->
       <p
+        v-if="lang === 'fa'"
         class="tw-text-theme-gray-400 tw-font-extralight tw-text-center"
         dir="rtl"
       >
@@ -140,10 +147,41 @@ const openNewTab = (url) => {
         >
         میتونی ببینی :)
       </p>
+
+      <!-- English bio -->
+      <p
+        v-else
+        class="tw-text-theme-gray-400 tw-font-extralight tw-text-center"
+      >
+        I started learning
+        <span class="tw-text-white tw-font-normal">front-end development</span>
+        on my own back in 2023, driven purely by passion. I carefully mastered
+        the fundamentals before moving into more advanced topics. On a friend's
+        recommendation I started with
+        <span class="tw-text-white tw-font-normal">React</span> — but later
+        picked up
+        <span class="tw-text-white tw-font-normal">Vue</span> as well to meet my
+        workplace's needs. I've built many practice and real-world projects since
+        then; you can find some of them in the
+        <router-link
+          to="/projects"
+          class="tw-text-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
+          >"Projects"</router-link
+        >
+        section, and the more complete ones on my
+        <a
+          class="tw-text-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
+          href="https://github.com/AminTabesh"
+          target="_blank"
+          >GitHub</a
+        >
+        :)
+      </p>
+
       <div ref="buttonsRef" class="tw-flex tw-gap-4 tw-justify-center">
-        <CustomButton @click="openNewTab(cvUrl)">مشاهده‌ی رزومه</CustomButton>
+        <CustomButton @click="openNewTab(cvUrl)">{{ t.intro.viewResume }}</CustomButton>
         <CustomButton :is-transparent="true">
-          <router-link to="/experiences">مشاهده تجربه ها</router-link>
+          <router-link to="/experiences">{{ t.intro.viewExperiences }}</router-link>
         </CustomButton>
       </div>
     </div>

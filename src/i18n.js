@@ -1,0 +1,116 @@
+export const translations = {
+  fa: {
+    dir: 'rtl',
+    nav: {
+      home: 'خانه',
+      projects: 'پروژه ها',
+      experiences: 'تجربه ها',
+      back: 'برگشتن',
+    },
+    intro: {
+      greeting: 'سلام، من امینَم',
+      viewResume: 'مشاهده‌ی رزومه',
+      viewExperiences: 'مشاهده تجربه ها',
+    },
+    xpYears: {
+      label: 'سال تجربه',
+      desc: 'کار با انواع تکنولوژی‌های فرانت‌اند',
+    },
+    detailedTechs: {
+      line1: 'تا حالا',
+      line2: 'تجربه کار با این تکنولوژی ها',
+      line3: 'رو بدست آوردم:',
+    },
+    expTopPart: {
+      line1: 'از اینجا میتونی با مسیر من',
+      line2prefix: 'به عنوان یک ',
+      highlight: 'برنامه نویس فرانت اند',
+      line3: 'بیشتر آشنا شی :)',
+      viewResume: 'مشاهده‌ی رزومه',
+    },
+    jobs: [
+      {
+        jobTitle: 'برنامه نویس فرانت اند',
+        startDate: 'دی 1403',
+        endDate: 'الان',
+        companyName: 'دایرکتم',
+        jobType: 'تمام وقت',
+        address: 'مرداویج',
+        city: 'اصفهان',
+        desc: 'بعد از گذروندن دوره ی کارآموزی، وارد کار اصلی شدم و قرار داد با من امضا شد. شروع کردم به کار روی زیرساخت های اصلی شرکت و نگهداری اون ها و ساخت پروژه های جدید. توی دایرکتم کار طبق سیستم اسکرام رو یاد گرفتم، با تیم بک اند به صورت مداوم در ارتباط بودم و با کمک بچه های اونجا سعی کردم دانش فنیم رو با یادگیری مباحث مختلف ارتقا بدم. اونجا روی پنل کاربران دایرکتم کار کردم، سی آر ام رو تکمیل کردم و دو تا پروژه جدید رو از صفر زدم که چون هنوز پابلیش نشدن نمیتونم راجبشون حرف بزنم، ولی خب تجربه خیلی خوبی بود. از همشون ممنونم و براشون آرزوی موفقیت میکنم:)',
+      },
+      {
+        jobTitle: 'کارآموز برنامه نویسی فول استک',
+        startDate: 'آذر 1403',
+        endDate: 'دی 1403',
+        companyName: 'دایرکتم',
+        address: 'مرداویج',
+        jobType: 'تمام وقت',
+        city: 'اصفهان',
+        desc: 'این اولین موقعیت شغلی من بود که توی اون با آدم های زیادی آشنا شدم و تکنولوژی های مختلف رو به صورت عملی امتحان کردم. توی اون تایم وظیفه نگهداری بخش هایی از فرانت شرکت با من بود و پروژه های کوچکی رو با لاراول در کنارش جلو میبردم، ولی بعد از یه مدت متوجه شدم که علاقه ای به لاراول ندارم و چسبیدم به ویو و فرانت. توی اون تایم شروع کردم به نوشتن سی آر امِ اختصاصیشون که هنوز هم داره ازش توی شرکت توسط چندین نفر استفاده میشه.',
+      },
+    ],
+    projects: [
+      { name: 'پنل دایرکتم', employer: 'دایرکتم', date: '1403-1404' },
+      { name: 'سی آر ام دایرکتم', employer: 'دایرکتم', date: '1403-1404' },
+      { name: 'دی ام پلاس', employer: 'دایرکتم', date: '1403-1404' },
+    ],
+  },
+  en: {
+    dir: 'ltr',
+    nav: {
+      home: 'Home',
+      projects: 'Projects',
+      experiences: 'Experiences',
+      back: 'Back',
+    },
+    intro: {
+      greeting: "Hi, I'm Amin",
+      viewResume: 'View Resume',
+      viewExperiences: 'View Experiences',
+    },
+    xpYears: {
+      label: 'Years of Experience',
+      desc: 'Working with various front-end technologies',
+    },
+    detailedTechs: {
+      line1: 'So far,',
+      line2: "I've gained experience",
+      line3: 'with these technologies:',
+    },
+    expTopPart: {
+      line1: 'Here you can get to know',
+      line2prefix: 'my journey as a ',
+      highlight: 'Front-end Developer',
+      line3: 'a little better :)',
+      viewResume: 'View Resume',
+    },
+    jobs: [
+      {
+        jobTitle: 'Front-end Developer',
+        startDate: 'Jan 2025',
+        endDate: 'Present',
+        companyName: 'Directam',
+        jobType: 'Full-time',
+        address: 'Mardavij',
+        city: 'Isfahan',
+        desc: "After completing my internship, I transitioned into a full-time role and signed an official contract. I began working on the company's core infrastructure — maintaining existing systems and building new projects from scratch. At Directam, I learned to work within a Scrum framework, collaborated closely with the back-end team, and continuously expanded my technical knowledge. I worked on the Directam user panel, completed the CRM, and led two new projects from scratch — which I can't discuss publicly yet since they haven't been released, but they were great learning experiences. I'm grateful for everyone there and wish them all the best :)",
+      },
+      {
+        jobTitle: 'Full-stack Development Intern',
+        startDate: 'Dec 2024',
+        endDate: 'Jan 2025',
+        companyName: 'Directam',
+        address: 'Mardavij',
+        jobType: 'Full-time',
+        city: 'Isfahan',
+        desc: "This was my first professional role, where I got to meet a lot of people and gain hands-on experience with various technologies. During that time, I was responsible for maintaining parts of the company's front-end while also working on small Laravel projects alongside it. After a while, I realized I wasn't passionate about Laravel, so I focused entirely on Vue and front-end development. That's when I started building their custom CRM, which is still actively used by several people at the company today.",
+      },
+    ],
+    projects: [
+      { name: 'Directam Panel', employer: 'Directam', date: '2024-2025' },
+      { name: 'Directam CRM', employer: 'Directam', date: '2024-2025' },
+      { name: 'DM Plus', employer: 'Directam', date: '2024-2025' },
+    ],
+  },
+}
