@@ -6,14 +6,197 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Design tokens ─── */
+:root {
+  /* Core palette */
+  --c-bg:         #0C0C0D;
+  --c-surface:    #131313;
+  --c-surface-2:  #1C1C1E;
+  --c-text:       #FFFFFF;
+  --c-text-muted: #6F6F6F;
+  --c-text-sub:   #C8C8C8;
+  --c-purple:     #B292FF;
+  --c-purple-deep:#6104D6;
+  --c-green:      #5FB9B0;
+
+  /* Nav */
+  --nav-bg:     rgba(33, 31, 35, 0.75);
+  --nav-border: rgba(255, 255, 255, 0.06);
+  --nav-shadow: rgba(0, 0, 0, 0.4);
+  --nav-inset:  rgba(255, 255, 255, 0.04);
+
+  /* Ambient glows */
+  --glow-1: rgba(157, 106, 255, 0.14);
+  --glow-2: rgba(97,  4,   214, 0.16);
+  --glow-3: rgba(130, 60,  220, 0.13);
+
+  /* Cards & borders */
+  --border-card:         #232323;
+  --card-border:         rgba(255, 255, 255, 0.04);
+  --card-hover-border:   rgba(178, 146, 255, 0.35);
+  --card-hover-shadow-1: rgba(178, 146, 255, 0.10);
+  --card-hover-shadow-2: rgba(0,   0,   0,   0.35);
+
+  /* Tech logo chips */
+  --tech-logo-bg:          rgba(255, 255, 255, 0.06);
+  --tech-logo-border:      rgba(255, 255, 255, 0.10);
+  --tech-logo-shadow-1:    rgba(0,   0,   0,   0.40);
+  --tech-logo-shadow-2:    rgba(0,   0,   0,   0.20);
+  --tech-logo-hover-shadow:rgba(178, 146, 255, 0.30);
+
+  /* Footer */
+  --footer-line:         rgba(178, 146, 255, 0.45);
+  --footer-border:       rgba(255, 255, 255, 0.04);
+  --footer-hover-shadow: rgba(178, 146, 255, 0.08);
+
+  /* Scroll-to-top */
+  --scroll-btn-bg:     rgba(33, 31, 35, 0.85);
+  --scroll-btn-border: rgba(255, 255, 255, 0.10);
+  --scroll-btn-shadow: rgba(178, 146, 255, 0.20);
+  --scroll-btn-hover-border: rgba(178, 146, 255, 0.50);
+
+  /* Buttons */
+  --btn-primary-bg:    #FFFFFF;
+  --btn-primary-text:  #0C0C0D;
+  --btn-shimmer:       rgba(178, 146, 255, 0.40);
+  --btn-hover-shadow:  rgba(178, 146, 255, 0.30);
+
+  /* XP / Stat block */
+  --stat-gradient:    linear-gradient(135deg, #C69AFF 0%, #B292FF 50%, #7C3AED 100%);
+  --stat-divider-col: #B292FF;
+  --stat-glow-dim:    rgba(178, 146, 255, 0.45);
+  --stat-glow-bright: rgba(178, 146, 255, 0.85);
+
+  /* Job cards */
+  --job-bg:           #131313;
+  --job-hover-border: rgba(178, 146, 255, 0.18);
+  --job-hover-shadow: rgba(0,   0,   0,   0.40);
+  --job-dot-pulse:    rgba(95,  185, 176, 0.50);
+
+  /* Project cards */
+  --project-border: #232323;
+
+  /* Experiences hero */
+  --exp-glow-1:      rgba(178, 146, 255, 0.18);
+  --exp-glow-2:      rgba(97,  4,   214, 0.22);
+  --exp-ring-stop-1: rgba(178, 146, 255, 0.00);
+  --exp-ring-stop-2: rgba(178, 146, 255, 0.50);
+  --exp-ring-stop-3: rgba(97,  4,   214, 0.70);
+  --exp-highlight:   linear-gradient(90deg, #C69AFF, #B292FF, #9D6AFF);
+
+  /* CentralPart glows */
+  --central-glow-1: rgba(157, 106, 255, 0.50);
+  --central-glow-2: rgba(97,  4,   214, 0.50);
+
+  /* Detailed tech card */
+  --detail-card-bg:           linear-gradient(180deg, rgba(55,55,55,1) 0%, rgba(35,35,35,1) 50%, rgba(55,55,55,1) 100%);
+  --detail-card-hover-bg:     linear-gradient(180deg, rgba(178,146,255,0.6) 0%, rgba(97,4,214,0.4) 50%, rgba(178,146,255,0.3) 100%);
+  --detail-card-hover-shadow: rgba(178, 146, 255, 0.15);
+  --detail-card-hover-deep:   rgba(0,   0,   0,   0.40);
+
+  /* Custom cursor */
+  --cursor-dot:        #b292ff;
+  --cursor-dot-hover:  #ffffff;
+  --cursor-ring:       rgba(178, 146, 255, 0.70);
+  --cursor-ring-hover: rgba(255, 255, 255, 0.55);
+
+  /* Swiper pagination */
+  --swiper-bullet:        #606060;
+  --swiper-bullet-active: #d9d9d9;
+}
+
+/* ─── Light mode overrides ─── */
+:root.light-mode {
+  --c-bg:         #F5F3FF;
+  --c-surface:    #FFFFFF;
+  --c-surface-2:  #EDE9FD;
+  --c-text:       #1A1530;
+  --c-text-muted: #4E4A70;
+  --c-text-sub:   #4E4B6A;
+  --c-purple:     #6C31D7;
+  --c-purple-deep:#4A00A0;
+  --c-green:      #288F87;
+
+  --nav-bg:     rgba(255, 255, 255, 0.88);
+  --nav-border: rgba(108, 49, 215, 0.14);
+  --nav-shadow: rgba(108, 49, 215, 0.10);
+  --nav-inset:  rgba(255, 255, 255, 0.60);
+
+  --glow-1: rgba(124, 58, 237, 0.22);
+  --glow-2: rgba(97,  4,  214, 0.20);
+  --glow-3: rgba(130, 60, 220, 0.17);
+
+  --border-card:         rgba(108, 49, 215, 0.12);
+  --card-border:         rgba(108, 49, 215, 0.07);
+  --card-hover-border:   rgba(108, 49, 215, 0.35);
+  --card-hover-shadow-1: rgba(108, 49, 215, 0.08);
+  --card-hover-shadow-2: rgba(108, 49, 215, 0.05);
+
+  --tech-logo-bg:          rgba(108, 49, 215, 0.06);
+  --tech-logo-border:      rgba(108, 49, 215, 0.14);
+  --tech-logo-shadow-1:    rgba(108, 49, 215, 0.12);
+  --tech-logo-shadow-2:    rgba(108, 49, 215, 0.06);
+  --tech-logo-hover-shadow:rgba(108, 49, 215, 0.25);
+
+  --footer-line:         rgba(108, 49, 215, 0.35);
+  --footer-border:       rgba(108, 49, 215, 0.08);
+  --footer-hover-shadow: rgba(108, 49, 215, 0.06);
+
+  --scroll-btn-bg:           rgba(255, 255, 255, 0.92);
+  --scroll-btn-border:       rgba(108, 49, 215, 0.20);
+  --scroll-btn-shadow:       rgba(108, 49, 215, 0.15);
+  --scroll-btn-hover-border: rgba(108, 49, 215, 0.50);
+
+  --btn-primary-bg:   #1A1530;
+  --btn-primary-text: #FFFFFF;
+  --btn-shimmer:      rgba(108, 49, 215, 0.25);
+  --btn-hover-shadow: rgba(108, 49, 215, 0.25);
+
+  --stat-gradient:    linear-gradient(135deg, #7C3AED 0%, #6C31D7 50%, #4A00A0 100%);
+  --stat-divider-col: #7C3AED;
+  --stat-glow-dim:    rgba(108, 49, 215, 0.35);
+  --stat-glow-bright: rgba(108, 49, 215, 0.70);
+
+  --job-bg:           #FFFFFF;
+  --job-hover-border: rgba(108, 49, 215, 0.18);
+  --job-hover-shadow: rgba(108, 49, 215, 0.08);
+  --job-dot-pulse:    rgba(40,  143, 135, 0.50);
+
+  --project-border: rgba(108, 49, 215, 0.12);
+
+  --exp-glow-1:      rgba(124, 58,  237, 0.25);
+  --exp-glow-2:      rgba(97,  4,   214, 0.28);
+  --exp-ring-stop-1: rgba(108, 49,  215, 0.00);
+  --exp-ring-stop-2: rgba(108, 49,  215, 0.40);
+  --exp-ring-stop-3: rgba(97,  4,   214, 0.55);
+  --exp-highlight:   linear-gradient(90deg, #7C3AED, #6C31D7, #9D6AFF);
+
+  --central-glow-1: rgba(124, 58, 237, 0.38);
+  --central-glow-2: rgba(97,  4,  214, 0.30);
+
+  --detail-card-bg:           linear-gradient(180deg, rgba(108,49,215,0.55) 0%, rgba(97,4,214,0.35) 50%, rgba(108,49,215,0.55) 100%);
+  --detail-card-hover-bg:     linear-gradient(180deg, rgba(108,49,215,0.75) 0%, rgba(97,4,214,0.55) 50%, rgba(108,49,215,0.65) 100%);
+  --detail-card-hover-shadow: rgba(108, 49, 215, 0.20);
+  --detail-card-hover-deep:   rgba(108, 49, 215, 0.12);
+
+  --cursor-dot:        #7C3AED;
+  --cursor-dot-hover:  #1A1530;
+  --cursor-ring:       rgba(108, 49, 215, 0.60);
+  --cursor-ring-hover: rgba(26,  21,  48,  0.40);
+
+  --swiper-bullet:        rgba(108, 49, 215, 0.25);
+  --swiper-bullet-active: #6C31D7;
+}
+
 @layer base {
-    html {
-        scrollbar-gutter: stable;
-        scroll-behavior: smooth;
-    }
-    body {
-        @apply tw-bg-theme-gray-900 tw-text-theme-white;
-    }
+  html {
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply tw-bg-theme-gray-900 tw-text-theme-white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 }
 
 /* ─── Global Keyframes ─── */
@@ -54,4 +237,12 @@
 .btn-fade-leave-to {
   opacity: 0;
   transform: translateY(12px) scale(0.85);
+}
+
+/* ─── Swiper pagination theming ─── */
+.swiper-pagination-bullet {
+  background-color: var(--swiper-bullet) !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--swiper-bullet-active) !important;
 }

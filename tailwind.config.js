@@ -32,15 +32,15 @@ module.exports = {
     extend: {
       colors: {
         "theme-gray": {
-          900: "#0C0C0D",
-          800: "#131313",
-          700: "#272727",
-          400: "#6F6F6F",
-          300: "#C8C8C8",
+          900: "var(--c-bg)",
+          800: "var(--c-surface)",
+          700: "var(--c-surface-2)",
+          400: "var(--c-text-muted)",
+          300: "var(--c-text-sub)",
         },
-        "theme-green-500": "#5FB9B0",
-        "theme-purple-500": "#B292FF",
-        "theme-white": "#FFFFFF",
+        "theme-green-500": "var(--c-green)",
+        "theme-purple-500": "var(--c-purple)",
+        "theme-white": "var(--c-text)",
       },
     },
   },

@@ -125,22 +125,22 @@ const openNewTab = (url) => {
         dir="rtl"
       >
         از سال 1402 یادگیری برنامه نویسی
-        <span class="tw-text-white tw-font-normal">فرانت اند</span> رو به صورت
+        <span class="tw-text-theme-white tw-font-normal">فرانت اند</span> رو به صورت
         خودآموز و به خاطر علاقه خودم شروع کردم. مباحث پایه رو با دقت یاد گرفتم و
         آروم آروم به سمت مباحث پیشرفته تر رفتم. اول به توصیه دوستام
-        <span class="tw-text-white tw-font-normal">ری اکت</span> رو انتخاب کردم،
+        <span class="tw-text-theme-white tw-font-normal">ری اکت</span> رو انتخاب کردم،
         ولی بعد با توجه به نیاز محل کارم
-        <span class="tw-text-white tw-font-normal">ویو</span> رو
+        <span class="tw-text-theme-white tw-font-normal">ویو</span> رو
         هم یاد گرفتم و پروژه های تمرینی و واقعی زیادی نوشتم که
         یکسری هاشون رو از قسمت
         <router-link
           to="/projects"
-          class="tw-text-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
+          class="tw-text-theme-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
           >"پروژه ها"</router-link
         >
         و کاملترشون رو از صفحه
         <a
-          class="tw-text-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
+          class="tw-text-theme-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
           href="https://github.com/AminTabesh"
           target="_blank"
           >گیتهابم</a
@@ -154,23 +154,23 @@ const openNewTab = (url) => {
         class="tw-text-theme-gray-400 tw-font-extralight tw-text-center"
       >
         I started learning
-        <span class="tw-text-white tw-font-normal">front-end development</span>
+        <span class="tw-text-theme-white tw-font-normal">front-end development</span>
         on my own back in 2023, driven purely by passion. I carefully mastered
         the fundamentals before moving into more advanced topics. On a friend's
         recommendation I started with
-        <span class="tw-text-white tw-font-normal">React</span> — but later
+        <span class="tw-text-theme-white tw-font-normal">React</span> — but later
         picked up
-        <span class="tw-text-white tw-font-normal">Vue</span> as well to meet my
+        <span class="tw-text-theme-white tw-font-normal">Vue</span> as well to meet my
         workplace's needs. I've built many practice and real-world projects since
         then; you can find some of them in the
         <router-link
           to="/projects"
-          class="tw-text-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
+          class="tw-text-theme-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
           >"Projects"</router-link
         >
         section, and the more complete ones on my
         <a
-          class="tw-text-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
+          class="tw-text-theme-white tw-font-normal hover:tw-text-theme-purple-500 tw-transition-colors"
           href="https://github.com/AminTabesh"
           target="_blank"
           >GitHub</a
@@ -213,22 +213,23 @@ const openNewTab = (url) => {
 }
 
 .tech-logo {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--tech-logo-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  border-color: var(--tech-logo-border) !important;
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.4),
-    0 2px 8px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 8px 24px var(--tech-logo-shadow-1),
+    0 2px 8px var(--tech-logo-shadow-2),
+    inset 0 1px 0 var(--tech-logo-border);
   animation: float 3.5s ease-in-out infinite;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tech-logo:hover {
   box-shadow:
-    0 12px 32px rgba(178, 146, 255, 0.3),
-    0 4px 12px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    0 12px 32px var(--tech-logo-hover-shadow),
+    0 4px 12px var(--tech-logo-shadow-1),
+    inset 0 1px 0 var(--tech-logo-border);
 }
 
 .react-logo { animation-delay: 0s; }

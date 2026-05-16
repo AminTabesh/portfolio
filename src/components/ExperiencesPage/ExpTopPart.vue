@@ -58,7 +58,7 @@ const openNewTab = (url) => {
 <template>
   <div class="tw-flex tw-justify-center tw-mb-14">
     <div
-      class="exp-hero tw-relative tw-w-full tw-h-[300px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-font-thin tw-text-xl"
+      class="exp-hero tw-relative tw-w-full tw-h-[300px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-font-light tw-text-xl"
     >
       <!-- Ambient glow -->
       <div class="exp-glow-1" />
@@ -67,11 +67,11 @@ const openNewTab = (url) => {
       <!-- Decorative ring -->
       <div class="exp-ring" />
 
-      <p ref="text1" class="tw-relative tw-z-10 tw-text-theme-gray-400">{{ t.expTopPart.line1 }}</p>
-      <p ref="text2" class="tw-relative tw-z-10">
+      <p ref="text1" class="exp-muted tw-relative tw-z-10 tw-text-theme-gray-400">{{ t.expTopPart.line1 }}</p>
+      <p ref="text2" class="tw-relative tw-z-10 tw-font-normal">
         {{ t.expTopPart.line2prefix }}<span class="exp-highlight">{{ t.expTopPart.highlight }}</span>
       </p>
-      <p ref="text3" class="tw-relative tw-z-10 tw-text-theme-gray-400">{{ t.expTopPart.line3 }}</p>
+      <p ref="text3" class="exp-muted tw-relative tw-z-10 tw-text-theme-gray-400">{{ t.expTopPart.line3 }}</p>
       <div ref="buttonRef" class="tw-mt-6 tw-relative tw-z-10">
         <CustomButton class="tw-font-light tw-text-base" @click="openNewTab(cvUrl)">
           {{ t.expTopPart.viewResume }}
@@ -107,7 +107,7 @@ const openNewTab = (url) => {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(178, 146, 255, 0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--exp-glow-1) 0%, transparent 70%);
   filter: blur(40px);
   animation: glow-drift-1 7s ease-in-out infinite;
   z-index: 0;
@@ -120,7 +120,7 @@ const openNewTab = (url) => {
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(97, 4, 214, 0.22) 0%, transparent 65%);
+  background: radial-gradient(circle, var(--exp-glow-2) 0%, transparent 65%);
   filter: blur(35px);
   animation: glow-drift-2 9s ease-in-out infinite;
   z-index: 0;
@@ -136,10 +136,10 @@ const openNewTab = (url) => {
   border: 1px solid transparent;
   background: conic-gradient(
     from 0deg,
-    rgba(178, 146, 255, 0) 0deg,
-    rgba(178, 146, 255, 0.5) 90deg,
-    rgba(97, 4, 214, 0.7) 180deg,
-    rgba(178, 146, 255, 0) 270deg
+    var(--exp-ring-stop-1) 0deg,
+    var(--exp-ring-stop-2) 90deg,
+    var(--exp-ring-stop-3) 180deg,
+    var(--exp-ring-stop-1) 270deg
   ) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
@@ -150,12 +150,16 @@ const openNewTab = (url) => {
 }
 
 .exp-highlight {
-  background: linear-gradient(90deg, #C69AFF, #B292FF, #9D6AFF);
+  background: var(--exp-highlight);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradient-flow 3s ease infinite;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+:global(.light-mode) .exp-muted {
+  color: #3D3460 !important;
 }
 </style>

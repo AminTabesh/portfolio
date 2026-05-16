@@ -45,7 +45,8 @@ defineProps({
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow-x: clip; /* clip horizontal overflow without affecting vertical */
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .carousel-container {
@@ -85,7 +86,7 @@ defineProps({
   height: 13px;
   width: 20px !important;
   border-radius: 100px !important;
-  background-color: #606060 !important;
+  background-color: var(--swiper-bullet) !important;
   margin: 0 2px !important;
   padding: 0 !important;
   border: none !important;
@@ -94,7 +95,7 @@ defineProps({
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #d9d9d9 !important;
+  background-color: var(--swiper-bullet-active) !important;
   width: 65px !important;
 }
 </style>

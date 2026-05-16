@@ -20,11 +20,13 @@ const props = defineProps({
 
 <style scoped>
 .non-transparent-btn {
-  @apply tw-bg-white tw-text-theme-gray-900 tw-px-5 tw-py-2 tw-rounded-full;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  @apply tw-px-5 tw-py-2 tw-rounded-full;
   position: relative;
   overflow: hidden;
   font-weight: 500;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .non-transparent-btn::before {
@@ -34,19 +36,14 @@ const props = defineProps({
   left: -60%;
   width: 40%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(178, 146, 255, 0.4),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--btn-shimmer), transparent);
   animation: shimmer-slide 2.8s ease-in-out infinite;
   animation-delay: 0.8s;
 }
 
 .non-transparent-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(178, 146, 255, 0.3);
+  box-shadow: 0 8px 24px var(--btn-hover-shadow);
 }
 
 .non-transparent-btn:active {
@@ -68,7 +65,7 @@ const props = defineProps({
   left: 50%;
   right: 50%;
   height: 1px;
-  background: #B292FF;
+  background: var(--c-purple);
   transition: left 0.3s ease, right 0.3s ease;
 }
 

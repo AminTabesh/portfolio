@@ -66,13 +66,11 @@ onUnmounted(() => {
 <template>
   <Teleport to="body">
     <template v-if="!isTouch && visible">
-      <!-- Dot — snaps instantly to cursor -->
       <div
         class="c-dot"
         :class="{ 'c-dot--hover': hovering }"
         :style="{ transform: `translate(${dotX - 4}px, ${dotY - 4}px)` }"
       />
-      <!-- Ring — lerped behind the dot -->
       <div
         class="c-ring"
         :class="{ 'c-ring--hover': hovering }"
@@ -83,7 +81,6 @@ onUnmounted(() => {
 </template>
 
 <style>
-/* Hide native cursor on all elements when custom cursor is active */
 .custom-cursor-active,
 .custom-cursor-active * {
   cursor: none !important;
@@ -96,7 +93,7 @@ onUnmounted(() => {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #b292ff;
+  background: var(--cursor-dot);
   pointer-events: none;
   z-index: 99999;
   will-change: transform;
@@ -104,7 +101,7 @@ onUnmounted(() => {
 }
 
 .c-dot--hover {
-  background: #ffffff;
+  background: var(--cursor-dot-hover);
   width: 6px;
   height: 6px;
 }
@@ -116,7 +113,7 @@ onUnmounted(() => {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1.5px solid rgba(178, 146, 255, 0.7);
+  border: 1.5px solid var(--cursor-ring);
   pointer-events: none;
   z-index: 99998;
   will-change: transform;
@@ -127,8 +124,7 @@ onUnmounted(() => {
 .c-ring--hover {
   width: 44px;
   height: 44px;
-  border-color: rgba(255, 255, 255, 0.55);
-  /* Shift to keep centered when size changes */
+  border-color: var(--cursor-ring-hover);
   margin-left: -6px;
   margin-top: -6px;
 }

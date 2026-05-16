@@ -11,7 +11,6 @@ const openNewTab = (urlOrEmail) => {
     console.error("Invalid URL/Email provided");
     return;
   }
-
   if (urlOrEmail.includes("@") && !urlOrEmail.startsWith("http")) {
     window.location.href = `mailto:${urlOrEmail}`;
   } else {
@@ -22,35 +21,13 @@ const openNewTab = (urlOrEmail) => {
 
 <template>
   <footer class="tw-w-full tw-relative footer-wrapper">
-    <div
-      class="tw-w-full tw-h-[72px] tw-bg-theme-gray-800 tw-font-raleway tw-flex tw-justify-between tw-items-center tw-rounded-[100px] tw-px-5 footer-bar"
-    >
-      <p class="tw-text-[#B4B4B4] tw-text-[16px]">Follow Me</p>
+    <div class="tw-w-full tw-h-[72px] tw-bg-theme-gray-800 tw-font-raleway tw-flex tw-justify-between tw-items-center tw-rounded-[100px] tw-px-5 footer-bar">
+      <p class="tw-text-theme-gray-400 tw-text-[16px]">Follow Me</p>
       <div class="tw-flex tw-gap-3 tw-items-center">
-        <Icon
-          icon="ic:baseline-telegram"
-          class="footer-icon tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
-          width="24"
-          @click="openNewTab(telegramLink)"
-        />
-        <Icon
-          icon="mdi:github"
-          class="footer-icon tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
-          width="24"
-          @click="openNewTab(githubLink)"
-        />
-        <Icon
-          icon="ic:baseline-email"
-          class="footer-icon tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
-          width="24"
-          @click="openNewTab(emailAddress)"
-        />
-        <Icon
-          icon="mdi:linkedin"
-          class="footer-icon tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
-          width="24"
-          @click="openNewTab(linkedinLink)"
-        />
+        <Icon icon="ic:baseline-telegram"   class="footer-icon tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer" width="24" @click="openNewTab(telegramLink)" />
+        <Icon icon="mdi:github"             class="footer-icon tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer" width="24" @click="openNewTab(githubLink)" />
+        <Icon icon="ic:baseline-email"      class="footer-icon tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer" width="24" @click="openNewTab(emailAddress)" />
+        <Icon icon="mdi:linkedin"           class="footer-icon tw-text-theme-purple-500 hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer" width="24" @click="openNewTab(linkedinLink)" />
       </div>
     </div>
     <p class="tw-ml-5 tw-font-raleway tw-mt-3 tw-text-xs tw-text-theme-gray-400">
@@ -68,16 +45,16 @@ const openNewTab = (urlOrEmail) => {
   transform: translateX(-50%);
   width: 55%;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(178, 146, 255, 0.45), transparent);
+  background: linear-gradient(to right, transparent, var(--footer-line), transparent);
 }
 
 .footer-bar {
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--footer-border);
   transition: box-shadow 0.3s ease;
 }
 
 .footer-bar:hover {
-  box-shadow: 0 0 30px rgba(178, 146, 255, 0.08);
+  box-shadow: 0 0 30px var(--footer-hover-shadow);
 }
 
 .footer-icon {

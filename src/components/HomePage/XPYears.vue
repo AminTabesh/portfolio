@@ -39,8 +39,8 @@ const { stop } = useIntersectionObserver(containerRef, ([{ isIntersecting }]) =>
 
 <style scoped>
 @keyframes number-glow {
-  0%, 100% { filter: drop-shadow(0 0 16px rgba(178, 146, 255, 0.45)); }
-  50%       { filter: drop-shadow(0 0 36px rgba(178, 146, 255, 0.85)); }
+  0%, 100% { filter: drop-shadow(0 0 16px var(--stat-glow-dim)); }
+  50%       { filter: drop-shadow(0 0 36px var(--stat-glow-bright)); }
 }
 
 .stat-block {
@@ -56,7 +56,7 @@ const { stop } = useIntersectionObserver(containerRef, ([{ isIntersecting }]) =>
   font-size: 5.5rem;
   font-weight: 900;
   line-height: 1;
-  background: linear-gradient(135deg, #C69AFF 0%, #B292FF 50%, #7C3AED 100%);
+  background: var(--stat-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -66,20 +66,20 @@ const { stop } = useIntersectionObserver(containerRef, ([{ isIntersecting }]) =>
 .stat-divider {
   width: 56px;
   height: 1px;
-  background: linear-gradient(to right, transparent, #B292FF, transparent);
+  background: linear-gradient(to right, transparent, var(--stat-divider-col), transparent);
   margin: 0.2rem 0;
 }
 
 .stat-label {
   font-size: 1.15rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--c-text);
   margin: 0;
 }
 
 .stat-desc {
   font-size: 0.8rem;
-  color: #6F6F6F;
+  color: var(--c-text-muted);
   max-width: 180px;
   margin: 0;
   line-height: 1.5;
