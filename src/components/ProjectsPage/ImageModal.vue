@@ -47,7 +47,7 @@ onUnmounted(() => window.removeEventListener("keydown", onKeydown));
         <div class="tw-relative tw-z-10 tw-flex tw-items-center tw-gap-3 tw-max-w-5xl tw-w-full tw-px-4">
           <button
             v-if="images.length > 1"
-            class="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-white/10 hover:tw-bg-white/25 tw-flex tw-items-center tw-justify-center tw-transition-colors"
+            class="modal-nav-btn tw-flex-shrink-0 tw-w-11 tw-h-11 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-transition-all"
             @click="prev"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -59,13 +59,13 @@ onUnmounted(() => window.removeEventListener("keydown", onKeydown));
             <img
               :src="images[currentIndex]"
               :alt="`image ${currentIndex + 1}`"
-              class="tw-max-w-full tw-max-h-[80vh] tw-object-contain tw-rounded-xl tw-shadow-2xl"
+              class="modal-image tw-max-w-full tw-max-h-[80vh] tw-object-contain tw-rounded-xl tw-shadow-2xl"
             />
           </div>
 
           <button
             v-if="images.length > 1"
-            class="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-white/10 hover:tw-bg-white/25 tw-flex tw-items-center tw-justify-center tw-transition-colors"
+            class="modal-nav-btn tw-flex-shrink-0 tw-w-11 tw-h-11 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-transition-all"
             @click="next"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -75,7 +75,7 @@ onUnmounted(() => window.removeEventListener("keydown", onKeydown));
         </div>
 
         <button
-          class="tw-absolute tw-top-4 tw-right-4 tw-z-20 tw-w-10 tw-h-10 tw-rounded-full tw-bg-white/10 hover:tw-bg-white/25 tw-flex tw-items-center tw-justify-center tw-transition-colors"
+          class="modal-nav-btn tw-absolute tw-top-4 tw-right-4 tw-z-20 tw-w-11 tw-h-11 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-transition-all"
           @click="close"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -104,11 +104,32 @@ onUnmounted(() => window.removeEventListener("keydown", onKeydown));
 <style scoped>
 .modal-enter-active,
 .modal-leave-active {
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
+}
+.modal-enter-active .modal-image,
+.modal-leave-active .modal-image {
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .modal-enter-from,
 .modal-leave-to {
   opacity: 0;
+}
+.modal-enter-from .modal-image,
+.modal-leave-to .modal-image {
+  transform: scale(0.93);
+  opacity: 0;
+}
+
+.modal-nav-btn {
+  background: rgba(33, 31, 35, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(178, 146, 255, 0.2);
+  color: #B292FF;
+}
+.modal-nav-btn:hover {
+  background: rgba(178, 146, 255, 0.15);
+  border-color: rgba(178, 146, 255, 0.5);
+  transform: scale(1.1);
 }
 </style>

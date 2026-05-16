@@ -27,14 +27,15 @@ const jobs = [
 </script>
 
 <template>
-  <ExpTopPart />
-
-  <div class="tw-flex tw-flex-col tw-gap-6">
-    <JobCard
-      v-for="(job, index) in jobs"
-      :key="index"
-      :job="job"
-      class="tw-z-10"
-    />
+  <div>
+    <ExpTopPart />
+    <div class="tw-flex tw-flex-col tw-gap-6">
+      <JobCard
+        v-for="(job, index) in jobs"
+        :key="index"
+        :job="job"
+        class="tw-z-10"
+      />
+    </div>
   </div>
 </template>

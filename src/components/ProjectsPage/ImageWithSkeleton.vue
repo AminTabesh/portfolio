@@ -17,7 +17,7 @@ const loaded = ref(false);
     <img
       :src="src"
       :alt="alt"
-      class="tw-w-full tw-h-full tw-object-contain tw-cursor-zoom-in tw-transition-opacity tw-duration-300"
+      class="tw-w-full tw-h-full tw-object-contain tw-cursor-zoom-in zoomable-img"
       :class="loaded ? 'tw-opacity-100' : 'tw-opacity-0'"
       @load="loaded = true"
       @click="$emit('click')"
@@ -35,5 +35,13 @@ const loaded = ref(false);
 @keyframes shimmer {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
+}
+
+.zoomable-img {
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.zoomable-img:hover {
+  transform: scale(1.04);
 }
 </style>

@@ -11,7 +11,6 @@ const linkedinLink = "https://www.linkedin.com/in/amintabeshdev";
 const route = useRoute();
 const isHome = computed(() => route.path === "/");
 
-
 const isDesktop = computed(() => window.innerWidth >= 1024);
 
 const openNewTab = (urlOrEmail: string) => {
@@ -20,12 +19,9 @@ const openNewTab = (urlOrEmail: string) => {
     return;
   }
 
-  // If it's an email (contains '@' but not 'http')
   if (urlOrEmail.includes("@") && !urlOrEmail.startsWith("http")) {
     window.location.href = `mailto:${urlOrEmail}`;
-  }
-  // If it's a regular URL
-  else {
+  } else {
     window.open(urlOrEmail, "_blank", "noopener,noreferrer");
   }
 };
@@ -39,7 +35,7 @@ const openNewTab = (urlOrEmail: string) => {
       <!-- Back Button -->
       <div
         v-if="!isHome && isDesktop"
-        class="tw-flex tw-items-center tw-justify-center tw-absolute tw-left-4 sm:tw-left-20 tw-top-1/2 tw--translate-y-1/2 tw-cursor-pointer hover:tw-opacity-80 tw-transition-opacity"
+        class="tw-flex tw-items-center tw-justify-center tw-absolute tw-left-4 sm:tw-left-20 tw-top-1/2 tw--translate-y-1/2 tw-cursor-pointer hover:tw-opacity-80 tw-transition-all tw-duration-200 hover:tw-translate-x-[-3px]"
         @click="$router.go(-1)"
       >
         <Icon
@@ -50,58 +46,55 @@ const openNewTab = (urlOrEmail: string) => {
       </div>
 
       <!-- Main Navigation -->
-      <div
-        class="tw-text-[16px] tw-w-full tw-max-w-[620px] tw-h-[60px] tw-bg-[#211F23] tw-rounded-[100px] tw-flex tw-flex-row-reverse tw-items-center tw-justify-between tw-text-theme-purple-500 tw-px-6"
-      >
+      <div class="nav-pill tw-text-[16px] tw-w-full tw-max-w-[620px] tw-h-[60px] tw-rounded-[100px] tw-flex tw-flex-row-reverse tw-items-center tw-justify-between tw-text-theme-purple-500 tw-px-6">
         <div
-          class="tw-flex tw-flexro tw-items-center tw-justify-center tw-gap-4"
+          class="tw-flex tw-items-center tw-justify-center tw-gap-4"
         >
           <router-link
             to="/projects"
-            active-class="!tw-text-theme-white"
-            class="hover:tw-text-theme-white tw-transition-colors"
+            active-class="!tw-text-theme-white nav-active"
+            class="nav-link hover:tw-text-theme-white tw-transition-colors"
           >
             پروژه ها
           </router-link>
           <router-link
             to="/experiences"
-            active-class="!tw-text-theme-white"
-            class="hover:tw-text-theme-white tw-transition-colors"
+            active-class="!tw-text-theme-white nav-active"
+            class="nav-link hover:tw-text-theme-white tw-transition-colors"
           >
             تجربه ها
           </router-link>
-
           <router-link
             to="/"
-            active-class="!tw-text-theme-white"
-            class="hover:tw-text-theme-white tw-transition-colors"
+            active-class="!tw-text-theme-white nav-active"
+            class="nav-link hover:tw-text-theme-white tw-transition-colors"
           >
             خانه
           </router-link>
         </div>
 
-        <div class="tw-flex tw-gap-2 tw-items-center">
+        <div class="tw-flex tw-gap-3 tw-items-center">
           <Icon
             icon="ic:baseline-telegram"
-            class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
+            class="social-icon hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
             @click="openNewTab(telegramLink)"
           />
           <Icon
             icon="mdi:github"
-            class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
+            class="social-icon hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
             @click="openNewTab(githubLink)"
-            />
-            <Icon
+          />
+          <Icon
             icon="ic:baseline-email"
-            class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
+            class="social-icon hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
             @click="openNewTab(emailAddress)"
           />
           <Icon
             icon="mdi:linkedin"
-            class="hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
+            class="social-icon hover:tw-text-theme-white tw-transition-colors tw-cursor-pointer"
             width="22"
             @click="openNewTab(linkedinLink)"
           />
@@ -110,3 +103,45 @@ const openNewTab = (urlOrEmail: string) => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.nav-pill {
+  background: rgba(33, 31, 35, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.nav-link {
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: white;
+  transition: width 0.25s ease;
+}
+
+.nav-active::after {
+  width: 100%;
+}
+
+.social-icon {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.25) translateY(-2px);
+}
+</style>

@@ -11,68 +11,35 @@ const text2 = ref(null);
 const text3 = ref(null);
 
 useMotion(text1, {
-  initial: {
-    opacity: 0,
-    y: 20,
-  },
+  initial: { opacity: 0, y: 20 },
   visibleOnce: {
     opacity: 1,
     y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 50,
-      damping: 15,
-      delay: 300,
-    },
+    transition: { type: "spring", stiffness: 50, damping: 15, delay: 300 },
   },
 });
 useMotion(text2, {
-  initial: {
-    opacity: 0,
-    y: 20,
-  },
+  initial: { opacity: 0, y: 20 },
   visibleOnce: {
     opacity: 1,
     y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 50,
-      damping: 15,
-      delay: 400,
-    },
+    transition: { type: "spring", stiffness: 50, damping: 15, delay: 450 },
   },
 });
 useMotion(text3, {
-  initial: {
-    opacity: 0,
-    y: 20,
-  },
+  initial: { opacity: 0, y: 20 },
   visibleOnce: {
     opacity: 1,
     y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 50,
-      damping: 15,
-      delay: 500,
-    },
+    transition: { type: "spring", stiffness: 50, damping: 15, delay: 600 },
   },
 });
-
 useMotion(buttonRef, {
-  initial: {
-    opacity: 0,
-    y: 20,
-  },
+  initial: { opacity: 0, y: 20 },
   visibleOnce: {
     opacity: 1,
     y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 50,
-      damping: 15,
-      delay: 600,
-    },
+    transition: { type: "spring", stiffness: 50, damping: 15, delay: 750 },
   },
 });
 
@@ -86,30 +53,107 @@ const openNewTab = (url) => {
 </script>
 
 <template>
-  <div class="tw-flex tw-justify-center">
+  <div class="tw-flex tw-justify-center tw-mb-14">
     <div
-      class="tw-relative tw-w-full tw-h-[300px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-font-thin tw-text-xl"
+      class="exp-hero tw-relative tw-w-full tw-h-[300px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-font-thin tw-text-xl"
       dir="rtl"
     >
-      <div
-        class="tw-w-[200%] tw-h-[200%] tw-max-w-[560px] tw-max-h-[560px] tw-bg-white tw-rounded-full tw-opacity-[1.2%] tw-filter tw-blur-[50px] tw-absolute tw-top-1/2 tw-left-1/2 tw-translate-x-[-50%] tw-translate-y-[-50%] !tw-animate-pulse tw-z-0"
-        style="animation-duration: 6s !important"
-      ></div>
-      <div
-        class="tw-w-[180%] tw-h-[180%] tw-max-w-[560px] tw-max-h-[560px] tw-bg-white tw-rounded-full tw-opacity-[1.2%] tw-filter tw-blur-[50px] tw-absolute tw-top-1/2 tw-left-1/2 tw-translate-x-[-60%] tw-translate-y-[-35%] !tw-animate-pulse tw-z-0"
-        style="animation-duration: 8s !important"
-      ></div>
-      <p ref="text1">از اینجا میتونی با مسیر من</p>
-      <p ref="text2">
-        به عنوان یک <span class="tw-font-light">برنامه نویس فرانت اند</span>
+      <!-- Ambient glow -->
+      <div class="exp-glow-1" />
+      <div class="exp-glow-2" />
+
+      <!-- Decorative ring -->
+      <div class="exp-ring" />
+
+      <p ref="text1" class="tw-relative tw-z-10 tw-text-theme-gray-400">از اینجا میتونی با مسیر من</p>
+      <p ref="text2" class="tw-relative tw-z-10">
+        به عنوان یک <span class="exp-highlight">برنامه نویس فرانت اند</span>
       </p>
-      <p ref="text3">بیشتر آشنا شی :)</p>
-      <CustomButton
-        ref="buttonRef"
-        class="tw-mt-5 tw-font-light tw-text-base"
-        @click="openNewTab(cvUrl)"
-        >مشاهده‌ی رزومه</CustomButton
-      >
+      <p ref="text3" class="tw-relative tw-z-10 tw-text-theme-gray-400">بیشتر آشنا شی :)</p>
+      <div ref="buttonRef" class="tw-mt-6 tw-relative tw-z-10">
+        <CustomButton class="tw-font-light tw-text-base" @click="openNewTab(cvUrl)">
+          مشاهده‌ی رزومه
+        </CustomButton>
+      </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+@keyframes glow-drift-1 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-46%, -54%) scale(1.1); opacity: 0.9; }
+}
+
+@keyframes glow-drift-2 {
+  0%, 100% { transform: translate(-50%, -35%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-54%, -40%) scale(1.08); opacity: 0.8; }
+}
+
+@keyframes ring-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.exp-hero {
+  overflow: visible;
+}
+
+.exp-glow-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(178, 146, 255, 0.18) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: glow-drift-1 7s ease-in-out infinite;
+  z-index: 0;
+}
+
+.exp-glow-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(97, 4, 214, 0.22) 0%, transparent 65%);
+  filter: blur(35px);
+  animation: glow-drift-2 9s ease-in-out infinite;
+  z-index: 0;
+}
+
+.exp-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: conic-gradient(
+    from 0deg,
+    rgba(178, 146, 255, 0) 0deg,
+    rgba(178, 146, 255, 0.5) 90deg,
+    rgba(97, 4, 214, 0.7) 180deg,
+    rgba(178, 146, 255, 0) 270deg
+  ) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: ring-spin 10s linear infinite;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.exp-highlight {
+  background: linear-gradient(90deg, #C69AFF, #B292FF, #9D6AFF);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 3s ease infinite;
+  font-weight: 400;
+}
+</style>

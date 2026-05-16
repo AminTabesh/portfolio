@@ -73,12 +73,12 @@ const openNewTab = (url) => {
   >
     <div
       ref="imageRef"
-      class="tw-relative tw-w-full tw-max-w-[200px] md:tw-max-w-[390px] tw-flex-1"
+      class="tw-relative tw-w-full tw-max-w-[200px] md:tw-max-w-[390px] tw-flex-1 profile-wrapper"
     >
       <img
         src="../../assets/Image2.png"
         alt="Amin Tabesh"
-        class="tw-w-full tw-h-auto"
+        class="tw-w-full tw-h-auto profile-img"
       />
       <img
         src="../../assets/experience-logos/react-logo.png"
@@ -105,9 +105,14 @@ const openNewTab = (url) => {
       ref="contentRef"
       class="tw-flex tw-flex-col tw-justify-center tw-text-right tw-py-8 tw-gap-5 md:tw-w-[45%]"
     >
-      <h1 class="tw-font-semibold tw-text-2xl tw-text-center">
-        سلام، من امینَم
-      </h1>
+      <div class="tw-text-center">
+        <h1 class="tw-font-semibold tw-text-2xl">
+          سلام، من امینَم
+        </h1>
+        <p class="tw-text-theme-purple-500 tw-text-sm tw-mt-1 tw-font-light tw-tracking-widest role-label">
+          Front-end Developer
+        </p>
+      </div>
       <p
         class="tw-text-theme-gray-400 tw-font-extralight tw-text-center"
         dir="rtl"
@@ -151,6 +156,24 @@ const openNewTab = (url) => {
   50% { transform: translateY(-12px) rotate(3deg); }
 }
 
+@keyframes profile-glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 30px rgba(178, 146, 255, 0.18)); }
+  50% { filter: drop-shadow(0 0 60px rgba(178, 146, 255, 0.38)); }
+}
+
+@keyframes role-fade-in {
+  from { opacity: 0; letter-spacing: 0.05em; }
+  to { opacity: 1; letter-spacing: 0.2em; }
+}
+
+.profile-wrapper {
+  animation: profile-glow-pulse 5s ease-in-out infinite;
+}
+
+.profile-img {
+  transition: filter 0.4s ease;
+}
+
 .tech-logo {
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(10px);
@@ -160,10 +183,24 @@ const openNewTab = (url) => {
     0 2px 8px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   animation: float 3.5s ease-in-out infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tech-logo:hover {
+  box-shadow:
+    0 12px 32px rgba(178, 146, 255, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .react-logo { animation-delay: 0s; }
 .vue-logo   { animation-delay: 0.875s; }
 .js-logo    { animation-delay: 1.75s; }
 .ts-logo    { animation-delay: 2.625s; }
+
+.role-label {
+  animation: role-fade-in 1s ease forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
 </style>

@@ -6,8 +6,10 @@ import Introduction from "../components/HomePage/Introduction.vue";
 </script>
 
 <template>
-  <Introduction />
-  <Experiences />
-  <CentralPart class="tw-mt-28" />
-  <DetailedTechs class="tw-mt-44" />
+  <div>
+    <Introduction />
+    <Experiences />
+    <CentralPart class="tw-mt-28" />
+    <DetailedTechs class="tw-mt-44" />
+  </div>
 </template>

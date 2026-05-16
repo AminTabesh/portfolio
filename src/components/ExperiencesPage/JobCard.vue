@@ -14,7 +14,7 @@ const containerRef = ref(null);
 useMotion(containerRef, {
   initial: {
     opacity: 0,
-    y: 20,
+    y: 24,
   },
   visibleOnce: {
     opacity: 1,
@@ -23,7 +23,7 @@ useMotion(containerRef, {
       type: "spring",
       stiffness: 50,
       damping: 15,
-      delay: 600,
+      delay: 200,
     },
   },
 });
@@ -31,7 +31,7 @@ useMotion(containerRef, {
 
 <template>
   <div
-    class="tw-w-full md:tw-w-[90%] tw-mx-auto tw-bg-theme-gray-800 tw-rounded-[40px] tw-py-10 md:tw-py-14 tw-px-5 md:tw-px-16 tw-flex tw-flex-col tw-gap-12 md:tw-flex-row md:tw-gap-6"
+    class="job-card tw-w-full md:tw-w-[90%] tw-mx-auto tw-bg-theme-gray-800 tw-rounded-[40px] tw-py-10 md:tw-py-14 tw-px-5 md:tw-px-16 tw-flex tw-flex-col tw-gap-12 md:tw-flex-row md:tw-gap-6"
     dir="rtl"
     ref="containerRef"
   >
@@ -44,7 +44,7 @@ useMotion(containerRef, {
         class="tw-flex tw-items-center tw-gap-2 tw-text-[#717171] tw-font-light tw-text-sm"
       >
         <p>{{ job.startDate }}</p>
-        <div class="tw-w-2 tw-h-2 tw-bg-theme-green-500 tw-rounded-full"></div>
+        <div class="status-dot tw-w-2 tw-h-2 tw-bg-theme-green-500 tw-rounded-full"></div>
         <p>{{ job.endDate }}</p>
       </div>
       <p class="tw-text-[#717171] tw-font-light tw-text-sm">
@@ -62,3 +62,27 @@ useMotion(containerRef, {
     </div>
   </div>
 </template>
+
+<style scoped>
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(95, 185, 176, 0.5); }
+  50% { box-shadow: 0 0 0 5px rgba(95, 185, 176, 0); }
+}
+
+.job-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(178, 146, 255, 0.18);
+}
+
+.status-dot {
+  animation: dot-pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+</style>

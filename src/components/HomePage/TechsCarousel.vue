@@ -45,11 +45,18 @@ defineProps({
   display: flex;
   flex-direction: column;
   width: 100%;
+  overflow-x: clip; /* clip horizontal overflow without affecting vertical */
 }
 
 .carousel-container {
   width: 100%;
+  padding: 16px 0 20px; /* room for hover lift */
   @apply tw-select-none;
+}
+
+/* Allow Swiper to overflow vertically so hover lifts are visible */
+.swiper {
+  overflow: visible !important;
 }
 
 .swiper-wrapper {

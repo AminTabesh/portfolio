@@ -20,7 +20,7 @@ const modalIndex = ref(0);
 useMotion(containerRef, {
   initial: {
     opacity: 0,
-    y: 20,
+    y: 24,
   },
   visibleOnce: {
     opacity: 1,
@@ -42,7 +42,7 @@ function openModal(index) {
 
 <template>
   <div
-    class="tw-w-full tw-h-auto md:tw-h-[320px] tw-rounded-[40px] tw-border tw-border-[#232323] tw-flex tw-flex-col md:tw-flex-row tw-gap-5 tw-p-6 md:tw-p-8 overflow-hidden"
+    class="project-card tw-w-full tw-h-auto md:tw-h-[320px] tw-rounded-[40px] tw-border tw-border-[#232323] tw-flex tw-flex-col md:tw-flex-row tw-gap-5 tw-p-6 md:tw-p-8 overflow-hidden"
     dir="rtl"
     ref="containerRef"
   >
@@ -94,6 +94,18 @@ function openModal(index) {
 </template>
 
 <style scoped>
+.project-card {
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-card:hover {
+  border-color: rgba(178, 146, 255, 0.35) !important;
+  box-shadow:
+    0 0 40px rgba(178, 146, 255, 0.1),
+    0 10px 30px rgba(0, 0, 0, 0.35);
+  transform: translateY(-5px);
+}
+
 .carousel__item {
   padding: 0 2px;
 }

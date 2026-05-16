@@ -9,8 +9,49 @@
 @layer base {
     html {
         scrollbar-gutter: stable;
+        scroll-behavior: smooth;
     }
     body {
         @apply tw-bg-theme-gray-900 tw-text-theme-white;
     }
+}
+
+/* ─── Global Keyframes ─── */
+@keyframes shimmer-slide {
+  0% { left: -60%; }
+  60%, 100% { left: 120%; }
+}
+
+@keyframes rotate-ring {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradient-flow {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* ─── Page Transitions ─── */
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+.page-fade-enter-from {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.page-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* ─── Scroll-to-top button transition ─── */
+.btn-fade-enter-active,
+.btn-fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.btn-fade-enter-from,
+.btn-fade-leave-to {
+  opacity: 0;
+  transform: translateY(12px) scale(0.85);
 }

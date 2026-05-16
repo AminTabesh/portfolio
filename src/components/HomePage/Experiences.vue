@@ -63,7 +63,7 @@ const { stop: stopCarouselObserver } = useIntersectionObserver(
 </script>
 
 <template>
-  <div class="tw-flex tw-flex-col md:tw-flex-row md:tw-items-center">
+  <div class="tw-flex tw-flex-col md:tw-flex-row md:tw-items-center tw-gap-8 md:tw-gap-0">
     <div
       ref="xpYearsRef"
       class="tw-flex tw-w-full tw-justify-center tw-items-center md:tw-mb-10"

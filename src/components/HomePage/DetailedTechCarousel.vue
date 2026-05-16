@@ -41,7 +41,7 @@ const carouselConfig = {
 </script>
 
 <template>
-  <div class="tw-mt-10 tw-px-4 tw-select-none tw-cursor-grab active:tw-cursor-grabbing">
+  <div class="detailed-carousel-wrapper tw-mt-10 tw-px-4 tw-select-none tw-cursor-grab active:tw-cursor-grabbing">
     <Carousel ref="carousel" v-bind="carouselConfig">
       <Slide v-for="(tech, index) in techs" :key="index">
         <div class="carousel__item tw-flex tw-justify-center">
@@ -53,15 +53,21 @@ const carouselConfig = {
 </template>
 
 <style>
-/* Fix for vue3-carousel centering */
+/* Allow hover lift to show without clipping */
+.detailed-carousel-wrapper {
+  overflow-x: clip;
+}
+
 .carousel__viewport {
+  overflow: visible !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
 
 .carousel__track {
   align-items: center !important;
-  padding-bottom: 10px !important;
+  padding-top: 12px !important;
+  padding-bottom: 20px !important;
 }
 
 /* Optional: Customize the peek effect */
