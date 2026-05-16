@@ -16,7 +16,7 @@ const carousel = ref(null);
 
 const carouselConfig = {
   itemsToShow: 1.2,
-  wrapAround: true,
+  wrapAround: false,
   gap: 20,
   snapAlign: "start",
   autoplay: false,
